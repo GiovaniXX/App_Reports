@@ -1,6 +1,5 @@
 package app.reports;
 
-import com.mysql.cj.jdbc.result.ResultSetMetaData;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -27,17 +26,21 @@ public class MySQLData {
             Logger.getLogger(MySQLData.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
     //----------CADASTRAMENTO-----------//
-    public void cadastrarInformacoesAvon(String cedente, String codigoBarras, Date dataVencimento, float valorPagamento, String situacao) {
-        String query = "INSERT INTO avon (cedente, codigoBarras, dataVencimento, valorPagamento, situacao) VALUES (?, ?, ?, ?, ?)";
+    public void cadastrarInformacoesAvon(String produto, float preco, String categoria, String cedente, String codigoBarras, Date dataVencimento, float valorPagamento, String situacao) {
+        String query = "INSERT INTO avon (produto, preco, categoria, cedente, codigoBarras, dataVencimento, valorPagamento, situacao) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
             PreparedStatement statement = cnn.prepareStatement(query);
-            statement.setString(1, cedente);
-            statement.setString(2, codigoBarras);
-            statement.setDate(3, new java.sql.Date(dataVencimento.getTime()));
-            statement.setFloat(4, valorPagamento);
-            statement.setString(5, situacao);
+            statement.setString(1, produto);
+            statement.setFloat(2, preco);
+            statement.setString(3, categoria);
+            statement.setString(4, cedente);
+            statement.setString(5, codigoBarras);
+            statement.setDate(6, new java.sql.Date(dataVencimento.getTime()));
+            statement.setFloat(7, valorPagamento);
+            statement.setString(8, situacao);
             statement.executeUpdate();
             statement.close();
         } catch (SQLException ex) {
@@ -45,16 +48,19 @@ public class MySQLData {
         }
     }
 
-    public void cadastrarInformacoesBoticario(String cedente, String codigoBarras, Date dataVencimento, float valorPagamento, String situacao) {
-        String query = "INSERT INTO boticario (cedente, codigoBarras, dataVencimento, valorPagamento, situacao) VALUES (?, ?, ?, ?, ?)";
+    public void cadastrarInformacoesBoticario(String produto, float preco, String categoria, String cedente, String codigoBarras, Date dataVencimento, float valorPagamento, String situacao) {
+        String query = "INSERT INTO boticario (produto, preco, categoria, cedente, codigoBarras, dataVencimento, valorPagamento, situacao) VALUES (?, ?, ?, ?, ?)";
 
         try {
             PreparedStatement statement = cnn.prepareStatement(query);
-            statement.setString(1, cedente);
-            statement.setString(2, codigoBarras);
-            statement.setDate(3, new java.sql.Date(dataVencimento.getTime()));
-            statement.setFloat(4, valorPagamento);
-            statement.setString(5, situacao);
+            statement.setString(1, produto);
+            statement.setFloat(2, preco);
+            statement.setString(3, categoria);
+            statement.setString(4, cedente);
+            statement.setString(5, codigoBarras);
+            statement.setDate(6, new java.sql.Date(dataVencimento.getTime()));
+            statement.setFloat(7, valorPagamento);
+            statement.setString(8, situacao);
             statement.executeUpdate();
             statement.close();
         } catch (SQLException ex) {
@@ -62,16 +68,19 @@ public class MySQLData {
         }
     }
 
-    public void cadastrarInformacoesEudora(String cedente, String codigoBarras, Date dataVencimento, float valorPagamento, String situacao) {
-        String query = "INSERT INTO eudora (cedente, codigoBarras, dataVencimento, valorPagamento, situacao) VALUES (?, ?, ?, ?, ?)";
+    public void cadastrarInformacoesEudora(String produto, float preco, String categoria, String cedente, String codigoBarras, Date dataVencimento, float valorPagamento, String situacao) {
+        String query = "INSERT INTO eudora (produto, preco, categoria, cedente, codigoBarras, dataVencimento, valorPagamento, situacao) VALUES (?, ?, ?, ?, ?)";
 
         try {
             PreparedStatement statement = cnn.prepareStatement(query);
-            statement.setString(1, cedente);
-            statement.setString(2, codigoBarras);
-            statement.setDate(3, new java.sql.Date(dataVencimento.getTime()));
-            statement.setFloat(4, valorPagamento);
-            statement.setString(5, situacao);
+            statement.setString(1, produto);
+            statement.setFloat(2, preco);
+            statement.setString(3, categoria);
+            statement.setString(4, cedente);
+            statement.setString(5, codigoBarras);
+            statement.setDate(6, new java.sql.Date(dataVencimento.getTime()));
+            statement.setFloat(7, valorPagamento);
+            statement.setString(8, situacao);
             statement.executeUpdate();
             statement.close();
         } catch (SQLException ex) {
@@ -79,16 +88,19 @@ public class MySQLData {
         }
     }
 
-    public void cadastrarInformacoesGolfran(String cedente, String codigoBarras, Date dataVencimento, float valorPagamento, String situacao) {
-        String query = "INSERT INTO golfran (cedente, codigoBarras, dataVencimento, valorPagamento, situacao) VALUES (?, ?, ?, ?, ?)";
+    public void cadastrarInformacoesGolfran(String produto, float preco, String categoria, String cedente, String codigoBarras, Date dataVencimento, float valorPagamento, String situacao) {
+        String query = "INSERT INTO golfran (produto, preco, categoria, cedente, codigoBarras, dataVencimento, valorPagamento, situacao) VALUES (?, ?, ?, ?, ?)";
 
         try {
             PreparedStatement statement = cnn.prepareStatement(query);
-            statement.setString(1, cedente);
-            statement.setString(2, codigoBarras);
-            statement.setDate(3, new java.sql.Date(dataVencimento.getTime()));
-            statement.setFloat(4, valorPagamento);
-            statement.setString(5, situacao);
+            statement.setString(1, produto);
+            statement.setFloat(2, preco);
+            statement.setString(3, categoria);
+            statement.setString(4, cedente);
+            statement.setString(5, codigoBarras);
+            statement.setDate(6, new java.sql.Date(dataVencimento.getTime()));
+            statement.setFloat(7, valorPagamento);
+            statement.setString(8, situacao);
             statement.executeUpdate();
             statement.close();
         } catch (SQLException ex) {
@@ -96,16 +108,19 @@ public class MySQLData {
         }
     }
 
-    public void cadastrarInformacoesNatura(String cedente, String codigoBarras, Date dataVencimento, float valorPagamento, String situacao) {
-        String query = "INSERT INTO natura (cedente, codigoBarras, dataVencimento, valorPagamento, situacao) VALUES (?, ?, ?, ?, ?)";
+    public void cadastrarInformacoesNatura(String produto, float preco, String categoria, String cedente, String codigoBarras, Date dataVencimento, float valorPagamento, String situacao) {
+        String query = "INSERT INTO natura (produto, preco, categoria, cedente, codigoBarras, dataVencimento, valorPagamento, situacao) VALUES (?, ?, ?, ?, ?)";
 
         try {
             PreparedStatement statement = cnn.prepareStatement(query);
-            statement.setString(1, cedente);
-            statement.setString(2, codigoBarras);
-            statement.setDate(3, new java.sql.Date(dataVencimento.getTime()));
-            statement.setFloat(4, valorPagamento);
-            statement.setString(5, situacao);
+            statement.setString(1, produto);
+            statement.setFloat(2, preco);
+            statement.setString(3, categoria);
+            statement.setString(4, cedente);
+            statement.setString(5, codigoBarras);
+            statement.setDate(6, new java.sql.Date(dataVencimento.getTime()));
+            statement.setFloat(7, valorPagamento);
+            statement.setString(8, situacao);
             statement.executeUpdate();
             statement.close();
         } catch (SQLException ex) {

@@ -61,6 +61,12 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
         jTextField_Situacao = new javax.swing.JTextField();
         jButton_LimparCampos = new javax.swing.JButton();
         Button_NovoCadastro = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        jTextField_Produto = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jTextField_Preco = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        jTextField_Categoria = new javax.swing.JTextField();
 
         setClosable(true);
         setTitle("Cadastro de Boletos bancários");
@@ -102,20 +108,20 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
 
         jTable_Tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID Boleto", "Cedente", "Código Barras", "Data Vencimento", "Valor Pagamento", "Situação"
+                "ID Boleto", "Produto", "Preco", "Categotia", "Cedente", "Código Barras", "Data Vencimento", "Valor Pagamento", "Situação"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Float.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Float.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Float.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -128,12 +134,18 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(jTable_Tabela);
         if (jTable_Tabela.getColumnModel().getColumnCount() > 0) {
-            jTable_Tabela.getColumnModel().getColumn(0).setResizable(false);
-            jTable_Tabela.getColumnModel().getColumn(1).setResizable(false);
-            jTable_Tabela.getColumnModel().getColumn(2).setResizable(false);
-            jTable_Tabela.getColumnModel().getColumn(3).setResizable(false);
-            jTable_Tabela.getColumnModel().getColumn(4).setResizable(false);
-            jTable_Tabela.getColumnModel().getColumn(5).setResizable(false);
+            jTable_Tabela.getColumnModel().getColumn(0).setMinWidth(70);
+            jTable_Tabela.getColumnModel().getColumn(0).setPreferredWidth(70);
+            jTable_Tabela.getColumnModel().getColumn(0).setMaxWidth(70);
+            jTable_Tabela.getColumnModel().getColumn(2).setMinWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(2).setPreferredWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(2).setMaxWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(6).setMinWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(6).setPreferredWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(6).setMaxWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(7).setMinWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(7).setPreferredWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(7).setMaxWidth(100);
         }
 
         jLabel5.setText("Data e Hora Atual.:");
@@ -170,6 +182,18 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel8.setText("Produto.:");
+
+        jTextField_Produto.setEnabled(false);
+
+        jLabel9.setText("Preço.:");
+
+        jTextField_Preco.setEnabled(false);
+
+        jLabel10.setText("Categoria.:");
+
+        jTextField_Categoria.setEnabled(false);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -177,19 +201,36 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1896, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addGap(40, 40, 40)
-                                    .addComponent(jLabel6)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jComboBox_Empresas, 0, 400, Short.MAX_VALUE))
-                                .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabel5)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(jLabel_DataHoraAtualSistema, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addComponent(jSeparator1))
+                                .addComponent(jSeparator1)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(40, 40, 40)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel9)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jTextField_Preco, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel8)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jTextField_Produto, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel10)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jTextField_Categoria, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabel6)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(jComboBox_Empresas, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 6, Short.MAX_VALUE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(16, 16, 16)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -198,7 +239,7 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jTextField_CodigoBarras)
-                                    .addComponent(jTextField_Cedente, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)))
+                                    .addComponent(jTextField_Cedente, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel7)
@@ -206,21 +247,21 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextField_ValorPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField_Situacao, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(Button_NovoCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jButton_CadastrarBoletoBancoDados)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jButton_LimparCampos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jButton_ExcluirBoleto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(jTextField_Situacao, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField_DataVencimento, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 1001, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1896, Short.MAX_VALUE))
+                                .addComponent(jTextField_DataVencimento, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(109, 109, 109)
+                                .addComponent(Button_NovoCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton_CadastrarBoletoBancoDados)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton_LimparCampos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton_ExcluirBoleto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -236,6 +277,18 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(jComboBox_Empresas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(jTextField_Produto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(jTextField_Preco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(jTextField_Categoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
@@ -262,8 +315,8 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
                     .addComponent(jButton_ExcluirBoleto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton_LimparCampos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Button_NovoCadastro))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 744, Short.MAX_VALUE)
+                .addGap(34, 34, 34)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 626, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -272,6 +325,9 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
 
     private void jButton_CadastrarBoletoBancoDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_CadastrarBoletoBancoDadosActionPerformed
         try {
+            String produto = jTextField_Produto.getText();
+            float preco = Float.parseFloat(jTextField_Preco.getText());
+            String categoria = jTextField_Categoria.getText();
             String cedente = jTextField_Cedente.getText();
             String codigoBarras = convertStringToString(Util.extractFormattedNumber(jTextField_CodigoBarras.getText()));
             Date dataVencimento = Util.convertStringToDate(jTextField_DataVencimento.getText());
@@ -293,23 +349,23 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
             // Chamar o método apropriado com base na empresa selecionada
             switch (empresaSelecionada) {
                 case "Avon" -> {
-                    mySQLData.cadastrarInformacoesAvon(cedente, codigoBarras, dataVencimento, valorPagamento, situacao);
+                    mySQLData.cadastrarInformacoesAvon(produto, preco, categoria, cedente, codigoBarras, dataVencimento, valorPagamento, situacao);
                     mySQLData.atualizarTabelaAvon((DefaultTableModel) jTable_Tabela.getModel());
                 }
                 case "Boticário" -> {
-                    mySQLData.cadastrarInformacoesBoticario(cedente, codigoBarras, dataVencimento, valorPagamento, situacao);
+                    mySQLData.cadastrarInformacoesBoticario(produto, preco, categoria, cedente, codigoBarras, dataVencimento, valorPagamento, situacao);
                     mySQLData.atualizarTabelaBoticario((DefaultTableModel) jTable_Tabela.getModel());
                 }
                 case "Eudora" -> {
-                    mySQLData.cadastrarInformacoesEudora(cedente, codigoBarras, dataVencimento, valorPagamento, situacao);
+                    mySQLData.cadastrarInformacoesEudora(produto, preco, categoria, cedente, codigoBarras, dataVencimento, valorPagamento, situacao);
                     mySQLData.atualizarTabelaEudora((DefaultTableModel) jTable_Tabela.getModel());
                 }
                 case "Golfran" -> {
-                    mySQLData.cadastrarInformacoesGolfran(cedente, codigoBarras, dataVencimento, valorPagamento, situacao);
+                    mySQLData.cadastrarInformacoesGolfran(produto, preco, categoria, cedente, codigoBarras, dataVencimento, valorPagamento, situacao);
                     mySQLData.atualizarTabelaGolfran((DefaultTableModel) jTable_Tabela.getModel());
                 }
                 case "Natura" -> {
-                    mySQLData.cadastrarInformacoesNatura(cedente, codigoBarras, dataVencimento, valorPagamento, situacao);
+                    mySQLData.cadastrarInformacoesNatura(produto, preco, categoria, cedente, codigoBarras, dataVencimento, valorPagamento, situacao);
                     mySQLData.atualizarTabelaNatura((DefaultTableModel) jTable_Tabela.getModel());
                 }
             }
@@ -319,6 +375,9 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
             Logger.getLogger(SecondWindow.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+        jTextField_Produto.setEnabled(false);
+        jTextField_Preco.setEnabled(false);
+        jTextField_Categoria.setEnabled(false);
         jTextField_Cedente.setEnabled(false);
         jTextField_CodigoBarras.setEnabled(false);
         jTextField_DataVencimento.setEnabled(false);
@@ -384,6 +443,9 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton_ExcluirBoletoActionPerformed
 
     private void jButton_LimparCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_LimparCamposActionPerformed
+        jTextField_Produto.setText("");
+        jTextField_Preco.setText("");
+        jTextField_Categoria.setText("");
         jTextField_Cedente.setText("");
         jTextField_CodigoBarras.setText("");
         jTextField_DataVencimento.setText("");
@@ -403,6 +465,9 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jComboBox_EmpresasActionPerformed
 
     private void Button_NovoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_NovoCadastroActionPerformed
+        jTextField_Produto.setEnabled(true);
+        jTextField_Preco.setEnabled(true);
+        jTextField_Categoria.setEnabled(true);
         jTextField_Cedente.setEnabled(true);
         jTextField_CodigoBarras.setEnabled(true);
         jTextField_DataVencimento.setEnabled(true);
@@ -410,6 +475,9 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
         jTextField_Situacao.setEnabled(true);
 
         // Limpar os campos ou definir valores padrão
+        jTextField_Produto.setText("");
+        jTextField_Preco.setText("");
+        jTextField_Categoria.setText("");
         jTextField_Cedente.setText("");
         jTextField_CodigoBarras.setText("");
         jTextField_DataVencimento.setText("");
@@ -427,19 +495,25 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton_LimparCampos;
     private javax.swing.JComboBox<String> jComboBox_Empresas;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabel_DataHoraAtualSistema;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable_Tabela;
+    private javax.swing.JTextField jTextField_Categoria;
     private javax.swing.JTextField jTextField_Cedente;
     private javax.swing.JTextField jTextField_CodigoBarras;
     private javax.swing.JTextField jTextField_DataVencimento;
+    private javax.swing.JTextField jTextField_Preco;
+    private javax.swing.JTextField jTextField_Produto;
     private javax.swing.JTextField jTextField_Situacao;
     private javax.swing.JTextField jTextField_ValorPagamento;
     // End of variables declaration//GEN-END:variables

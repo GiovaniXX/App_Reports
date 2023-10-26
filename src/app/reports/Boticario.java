@@ -33,7 +33,6 @@ public class Boticario {
     public void setId(int id) {
         this.id = id;
     }
-
     public String getProduto() {
         return produto;
     }
