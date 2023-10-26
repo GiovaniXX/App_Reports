@@ -86,16 +86,25 @@ public final class MainWindow extends javax.swing.JFrame {
         SecondWindow sw = new SecondWindow();
         DesktopPane_MainWindow.add(sw);
         sw.show();
+        
+        int id = evt.getID();
+        System.out.println("ID do evento: " + id);
     }//GEN-LAST:event_jMenuItem_ReportsActionPerformed
 
     private void jMenuItem_RegistrationBillsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_RegistrationBillsActionPerformed
         ThirdWindow tw = new ThirdWindow();
         DesktopPane_MainWindow.add(tw);
         tw.show();
+        
+        int id = evt.getID();
+        System.out.println("ID do evento: " + id);
     }//GEN-LAST:event_jMenuItem_RegistrationBillsActionPerformed
 
     private void jMenuItem_ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_ExitActionPerformed
         System.exit(0);
+        
+        int id = evt.getID();
+        System.out.println("ID do evento: " + id);
     }//GEN-LAST:event_jMenuItem_ExitActionPerformed
 
     public class main {

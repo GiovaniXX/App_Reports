@@ -4,18 +4,58 @@ import java.util.Date;
 
 public class Boticario {
 
+    private int id;
+    private String produto;
+    private float preco;
+    private String categoria;
     private String Cedente;
     private double codigoBarras;
     private Date dataVencimento;
     private float valorPagamento;
     private String situacao;
 
-    public Boticario(int idboleto, String Cedente, double codigoBarras, Date dataVencimento, float valorPagamento, String situacao) {
+    public Boticario(int id, String produto, float preco, String categoria, String Cedente, double codigoBarras, Date dataVencimento, float valorPagamento, String situacao) {
+        this.id = id;
+        this.produto = produto;
+        this.preco = preco;
+        this.categoria = categoria;
         this.Cedente = Cedente;
         this.codigoBarras = codigoBarras;
         this.dataVencimento = dataVencimento;
         this.valorPagamento = valorPagamento;
         this.situacao = situacao;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getProduto() {
+        return produto;
+    }
+
+    public void setProduto(String produto) {
+        this.produto = produto;
+    }
+
+    public float getPreco() {
+        return preco;
+    }
+
+    public void setPreco(float preco) {
+        this.preco = preco;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 
     public String getCedente() {

@@ -21,7 +21,7 @@ public class MySQLData {
             Class.forName("com.mysql.cj.jdbc.Driver");
             String dbUrl = "jdbc:mysql://localhost:3306/appreports";
             String user = "root";
-            String password = "PerfectWorld2023@$";
+            String password = "xyx387@$$gVc";
             cnn = DriverManager.getConnection(dbUrl, user, password);
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(MySQLData.class.getName()).log(Level.SEVERE, null, ex);
