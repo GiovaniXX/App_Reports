@@ -49,7 +49,7 @@ public class MySQLData {
     }
 
     public void cadastrarInformacoesBoticario(String produto, float preco, String categoria, String cedente, String codigoBarras, Date dataVencimento, float valorPagamento, String situacao) {
-        String query = "INSERT INTO boticario (produto, preco, categoria, cedente, codigoBarras, dataVencimento, valorPagamento, situacao) VALUES (?, ?, ?, ?, ?)";
+        String query = "INSERT INTO boticario (produto, preco, categoria, cedente, codigoBarras, dataVencimento, valorPagamento, situacao) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
             PreparedStatement statement = cnn.prepareStatement(query);
@@ -69,7 +69,7 @@ public class MySQLData {
     }
 
     public void cadastrarInformacoesEudora(String produto, float preco, String categoria, String cedente, String codigoBarras, Date dataVencimento, float valorPagamento, String situacao) {
-        String query = "INSERT INTO eudora (produto, preco, categoria, cedente, codigoBarras, dataVencimento, valorPagamento, situacao) VALUES (?, ?, ?, ?, ?)";
+        String query = "INSERT INTO eudora (produto, preco, categoria, cedente, codigoBarras, dataVencimento, valorPagamento, situacao) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
             PreparedStatement statement = cnn.prepareStatement(query);
@@ -89,7 +89,7 @@ public class MySQLData {
     }
 
     public void cadastrarInformacoesGolfran(String produto, float preco, String categoria, String cedente, String codigoBarras, Date dataVencimento, float valorPagamento, String situacao) {
-        String query = "INSERT INTO golfran (produto, preco, categoria, cedente, codigoBarras, dataVencimento, valorPagamento, situacao) VALUES (?, ?, ?, ?, ?)";
+        String query = "INSERT INTO golfran (produto, preco, categoria, cedente, codigoBarras, dataVencimento, valorPagamento, situacao) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
             PreparedStatement statement = cnn.prepareStatement(query);
@@ -109,7 +109,7 @@ public class MySQLData {
     }
 
     public void cadastrarInformacoesNatura(String produto, float preco, String categoria, String cedente, String codigoBarras, Date dataVencimento, float valorPagamento, String situacao) {
-        String query = "INSERT INTO natura (produto, preco, categoria, cedente, codigoBarras, dataVencimento, valorPagamento, situacao) VALUES (?, ?, ?, ?, ?)";
+        String query = "INSERT INTO natura (produto, preco, categoria, cedente, codigoBarras, dataVencimento, valorPagamento, situacao) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
             PreparedStatement statement = cnn.prepareStatement(query);
@@ -225,13 +225,16 @@ public class MySQLData {
 
             while (resultSet.next()) {
                 int idboleto = resultSet.getInt("idboleto");
+                String produto = resultSet.getString("produto");
+                float preco = resultSet.getFloat("preco");
+                String categoria = resultSet.getString("categoria");
                 String cedente = resultSet.getString("cedente");
                 String codigoBarras = resultSet.getString("codigoBarras");
                 Date dataVencimento = resultSet.getDate("dataVencimento");
                 float valorPagamento = resultSet.getFloat("valorPagamento");
                 String situacao = resultSet.getString("situacao");
 
-                Object[] rowData = {idboleto, cedente, codigoBarras, dataVencimento, valorPagamento, situacao};
+                Object[] rowData = {idboleto, produto, preco, categoria, cedente, codigoBarras, dataVencimento, valorPagamento, situacao};
                 tableModel.addRow(rowData);
             }
 
@@ -251,13 +254,85 @@ public class MySQLData {
 
             while (resultSet.next()) {
                 int idboleto = resultSet.getInt("idboleto");
+                String produto = resultSet.getString("produto");
+                float preco = resultSet.getFloat("preco");
+                String categoria = resultSet.getString("categoria");
                 String cedente = resultSet.getString("cedente");
                 String codigoBarras = resultSet.getString("codigoBarras");
                 Date dataVencimento = resultSet.getDate("dataVencimento");
                 float valorPagamento = resultSet.getFloat("valorPagamento");
                 String situacao = resultSet.getString("situacao");
 
-                Object[] rowData = {idboleto, cedente, codigoBarras, dataVencimento, valorPagamento, situacao};
+                Object[] rowData = {idboleto, produto, preco, categoria, cedente, codigoBarras, dataVencimento, valorPagamento, situacao};
+                tableModel.addRow(rowData);
+            }
+
+            resultSet.close();
+            statement.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(MySQLData.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    //-----------------------------------------------------------------------//
+    //----------CADASTRAMENTO DE CLIENTE-----------//
+
+    public void cadastrarCliente(String nome, String telefone) {
+        String query = "INSERT INTO clientes (nome, telefone) VALUES (?, ?)";
+
+        try {
+            PreparedStatement statement = cnn.prepareStatement(query);
+            statement.setString(1, nome);
+            statement.setString(2, telefone);
+            statement.executeUpdate();
+            statement.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(MySQLData.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    //----------EDIÇÃO DE CLIENTE-----------//
+    public void editarCliente(int idCliente, String novoNome, String novoTelefone) {
+        String query = "UPDATE clientes SET nome = ?, telefone = ? WHERE idcliente = ?";
+
+        try {
+            PreparedStatement statement = cnn.prepareStatement(query);
+            statement.setString(1, novoNome);
+            statement.setString(2, novoTelefone);
+            statement.setInt(3, idCliente);
+            statement.executeUpdate();
+            statement.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(MySQLData.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    //----------EXCLUSÃO DE CLIENTE-----------//
+    public void excluirCliente(int idCliente) {
+        String query = "DELETE FROM clientes WHERE idcliente = ?";
+
+        try {
+            PreparedStatement statement = cnn.prepareStatement(query);
+            statement.setInt(1, idCliente);
+            statement.executeUpdate();
+            statement.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(MySQLData.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private void atualizarTabelaClientes(String query, DefaultTableModel tableModel) {
+        try {
+            PreparedStatement statement = cnn.prepareStatement(query);
+            ResultSet resultSet = statement.executeQuery();
+
+            tableModel.setRowCount(0);
+
+            while (resultSet.next()) {
+                int idcliente = resultSet.getInt("idcliente");
+                String nome = resultSet.getString("nome");
+                String telefone = resultSet.getString("telefone");
+
+                Object[] rowData = {idcliente, nome, telefone};
                 tableModel.addRow(rowData);
             }
 
@@ -268,63 +343,26 @@ public class MySQLData {
         }
     }
 
-//    public DefaultTableModel pesquisarNoBanco(String tabela, String coluna, String valor) {
-//        DefaultTableModel tableModel = new DefaultTableModel();
-//
-//        String query = "SELECT * FROM " + tabela;
-//        boolean hasCondition = false;
-//
-//        if (!coluna.isEmpty() && !valor.isEmpty()) {
-//            if (coluna.equals("dataVencimento") && valor.equals("A vencer")) {
-//                // Adicionar condição para boletos a vencer
-//                query += " WHERE dataVencimento <= ?";
-//                hasCondition = true;
-//            } else if (coluna.equals("status") && valor.equals("Pagos")) {
-//                // Adicionar condição para boletos pagos (data de pagamento um dia após a data de vencimento)
-//                query += " WHERE dataVencimento <= DATE_ADD(CURDATE(), INTERVAL 1 DAY)";
-//                hasCondition = true;
-//            } else {
-//                query += " WHERE " + coluna + " = ?";
-//                hasCondition = true;
-//            }
-//        }
-//
-//        try {
-//            try (PreparedStatement statement = cnn.prepareStatement(query)) {
-//                if (hasCondition) {
-//                    if (coluna.equals("dataVencimento") && valor.equals("A vencer")) {
-//                        // Definir o valor com a data de vencimento atual
-//                        Date dataVencimento = new Date();
-//                        statement.setDate(1, new java.sql.Date(dataVencimento.getTime()));
-//                    } else {
-//                        statement.setString(1, valor);
-//                    }
-//                }
-//
-//                ResultSet resultSet = statement.executeQuery();
-//
-//                // Obtenha os metadados do ResultSet para criar as colunas do modelo da tabela
-//                ResultSetMetaData metaData = (ResultSetMetaData) resultSet.getMetaData();
-//                int columnCount = metaData.getColumnCount();
-//                for (int column = 1; column <= columnCount; column++) {
-//                    tableModel.addColumn(metaData.getColumnLabel(column));
-//                }
-//
-//                // Preencha o modelo da tabela com os dados do ResultSet
-//                while (resultSet.next()) {
-//                    Object[] rowData = new Object[columnCount];
-//                    for (int column = 1; column <= columnCount; column++) {
-//                        rowData[column - 1] = resultSet.getObject(column);
-//                    }
-//                    tableModel.addRow(rowData);
-//                }
-//
-//                resultSet.close();
-//            }
-//        } catch (SQLException ex) {
-//            Logger.getLogger(MySQLData.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//
-//        return tableModel;
-//    }
+    public void carregarClientesNaTabela(String query, DefaultTableModel tableModel) {
+        try {
+            tableModel.setRowCount(0);
+
+            PreparedStatement statement = cnn.prepareStatement(query);
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                int idcliente = resultSet.getInt("idcliente");
+                String nome = resultSet.getString("nome");
+                String telefone = resultSet.getString("telefone");
+
+                Object[] rowData = {idcliente, nome, telefone};
+                tableModel.addRow(rowData);
+            }
+
+            resultSet.close();
+            statement.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(MySQLData.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

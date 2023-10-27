@@ -140,12 +140,15 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
             jTable_Tabela.getColumnModel().getColumn(2).setMinWidth(100);
             jTable_Tabela.getColumnModel().getColumn(2).setPreferredWidth(100);
             jTable_Tabela.getColumnModel().getColumn(2).setMaxWidth(100);
-            jTable_Tabela.getColumnModel().getColumn(6).setMinWidth(100);
-            jTable_Tabela.getColumnModel().getColumn(6).setPreferredWidth(100);
-            jTable_Tabela.getColumnModel().getColumn(6).setMaxWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(4).setMinWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(4).setPreferredWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(4).setMaxWidth(100);
             jTable_Tabela.getColumnModel().getColumn(7).setMinWidth(100);
             jTable_Tabela.getColumnModel().getColumn(7).setPreferredWidth(100);
             jTable_Tabela.getColumnModel().getColumn(7).setMaxWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(8).setMinWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(8).setPreferredWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(8).setMaxWidth(100);
         }
 
         jLabel5.setText("Data e Hora Atual.:");
@@ -486,6 +489,7 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
 
         int id = evt.getID();
         System.out.println("ID do evento: " + id);
+        System.out.println("Evento executado com sucesso.!");
     }//GEN-LAST:event_Button_NovoCadastroActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

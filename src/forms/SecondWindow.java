@@ -116,20 +116,20 @@ public class SecondWindow extends javax.swing.JInternalFrame {
 
         jTable_Tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID Boleto", "Cedente", "Código Barras", "Data de Vencimento", "Valor Pagamento", "Situação"
+                "ID Boleto", "Produto", "Preco", "Categoria", "Cedente", "Código Barras", "Data de Vencimento", "Valor Pagamento", "Situação"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Float.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Float.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Float.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -143,15 +143,21 @@ public class SecondWindow extends javax.swing.JInternalFrame {
         jTable_Tabela.setSelectionBackground(new java.awt.Color(187, 187, 187));
         jScrollPane1.setViewportView(jTable_Tabela);
         if (jTable_Tabela.getColumnModel().getColumnCount() > 0) {
-            jTable_Tabela.getColumnModel().getColumn(0).setResizable(false);
-            jTable_Tabela.getColumnModel().getColumn(0).setPreferredWidth(80);
-            jTable_Tabela.getColumnModel().getColumn(1).setResizable(false);
-            jTable_Tabela.getColumnModel().getColumn(2).setResizable(false);
-            jTable_Tabela.getColumnModel().getColumn(3).setResizable(false);
-            jTable_Tabela.getColumnModel().getColumn(3).setPreferredWidth(150);
-            jTable_Tabela.getColumnModel().getColumn(4).setResizable(false);
-            jTable_Tabela.getColumnModel().getColumn(4).setPreferredWidth(150);
-            jTable_Tabela.getColumnModel().getColumn(5).setResizable(false);
+            jTable_Tabela.getColumnModel().getColumn(0).setMinWidth(70);
+            jTable_Tabela.getColumnModel().getColumn(0).setPreferredWidth(70);
+            jTable_Tabela.getColumnModel().getColumn(0).setMaxWidth(70);
+            jTable_Tabela.getColumnModel().getColumn(2).setMinWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(2).setPreferredWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(2).setMaxWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(4).setMinWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(4).setPreferredWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(4).setMaxWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(7).setMinWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(7).setPreferredWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(7).setMaxWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(8).setMinWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(8).setPreferredWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(8).setMaxWidth(100);
         }
 
         jLabel_DataHoraAtualSistema.setPreferredSize(new java.awt.Dimension(0, 16));
@@ -384,6 +390,7 @@ public class SecondWindow extends javax.swing.JInternalFrame {
             jTable_Tabela.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
         }
     }
+
     //-------------------------WHATSAPP---------------------------------//
     private void enviarMensagemWhatsApp(String numero, String mensagem) {
         try {
@@ -399,14 +406,20 @@ public class SecondWindow extends javax.swing.JInternalFrame {
         if (selectedRow != -1) {
             // Obter os dados do boleto selecionado na tabela
             String idBoleto = jTable_Tabela.getValueAt(selectedRow, 0).toString();
-            String cedente = jTable_Tabela.getValueAt(selectedRow, 1).toString();
-            String codigoBarras = jTable_Tabela.getValueAt(selectedRow, 2).toString();
-            String dataVencimento = jTable_Tabela.getValueAt(selectedRow, 3).toString();
-            String valorPagar = jTable_Tabela.getValueAt(selectedRow, 4).toString();
+            String produto = jTable_Tabela.getValueAt(selectedRow, 1).toString();
+            String preco = jTable_Tabela.getValueAt(selectedRow, 2).toString();
+            String categoria = jTable_Tabela.getValueAt(selectedRow, 3).toString();
+            String cedente = jTable_Tabela.getValueAt(selectedRow, 4).toString();
+            String codigoBarras = jTable_Tabela.getValueAt(selectedRow, 5).toString();
+            String dataVencimento = jTable_Tabela.getValueAt(selectedRow, 6).toString();
+            String valorPagar = jTable_Tabela.getValueAt(selectedRow, 7).toString();
 
             // Formatar a mensagem a ser enviada
             String mensagem = "Boleto a vencer:\n\n"
                     + "ID do Boleto: " + idBoleto + "\n"
+                    + "Produto: " + produto + "\n"
+                    + "Preco: " + preco + "\n"
+                    + "categoria: " + categoria + "\n"
                     + "Cedente: " + cedente + "\n"
                     + "Código de Barras: " + codigoBarras + "\n"
                     + "Data de Vencimento: " + dataVencimento + "\n"

@@ -23,6 +23,7 @@ public final class MainWindow extends javax.swing.JFrame {
         jMenu_File = new javax.swing.JMenu();
         jMenuItem_Reports = new javax.swing.JMenuItem();
         jMenuItem_RegistrationBills = new javax.swing.JMenuItem();
+        jMenuItem_RegisterCustumers = new javax.swing.JMenuItem();
         jMenuItem_Exit = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -35,7 +36,9 @@ public final class MainWindow extends javax.swing.JFrame {
 
         jLabel_StatusConexao.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel_StatusConexao.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel_StatusConexao.setPreferredSize(new java.awt.Dimension(1258, 64));
+        jLabel_StatusConexao.setMaximumSize(new java.awt.Dimension(1920, 1080));
+        jLabel_StatusConexao.setMinimumSize(new java.awt.Dimension(1366, 768));
+        jLabel_StatusConexao.setPreferredSize(new java.awt.Dimension(1920, 1080));
         DesktopPane_MainWindow.add(jLabel_StatusConexao, java.awt.BorderLayout.CENTER);
 
         jMenu_File.setText("File");
@@ -55,6 +58,14 @@ public final class MainWindow extends javax.swing.JFrame {
             }
         });
         jMenu_File.add(jMenuItem_RegistrationBills);
+
+        jMenuItem_RegisterCustumers.setText("Register Customers");
+        jMenuItem_RegisterCustumers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_RegisterCustumersActionPerformed(evt);
+            }
+        });
+        jMenu_File.add(jMenuItem_RegisterCustumers);
 
         jMenuItem_Exit.setText("Exit");
         jMenuItem_Exit.addActionListener(new java.awt.event.ActionListener() {
@@ -76,7 +87,7 @@ public final class MainWindow extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(DesktopPane_MainWindow)
+            .addComponent(DesktopPane_MainWindow, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
         );
 
         pack();
@@ -86,7 +97,7 @@ public final class MainWindow extends javax.swing.JFrame {
         SecondWindow sw = new SecondWindow();
         DesktopPane_MainWindow.add(sw);
         sw.show();
-        
+
         int id = evt.getID();
         System.out.println("ID do evento: " + id);
     }//GEN-LAST:event_jMenuItem_ReportsActionPerformed
@@ -95,17 +106,26 @@ public final class MainWindow extends javax.swing.JFrame {
         ThirdWindow tw = new ThirdWindow();
         DesktopPane_MainWindow.add(tw);
         tw.show();
-        
+
         int id = evt.getID();
         System.out.println("ID do evento: " + id);
     }//GEN-LAST:event_jMenuItem_RegistrationBillsActionPerformed
 
     private void jMenuItem_ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_ExitActionPerformed
         System.exit(0);
-        
+
         int id = evt.getID();
         System.out.println("ID do evento: " + id);
     }//GEN-LAST:event_jMenuItem_ExitActionPerformed
+
+    private void jMenuItem_RegisterCustumersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_RegisterCustumersActionPerformed
+        FourthWindow fw = new FourthWindow();
+        DesktopPane_MainWindow.add(fw);
+        fw.show();
+
+        int id = evt.getID();
+        System.out.println("ID do evento: " + id);
+    }//GEN-LAST:event_jMenuItem_RegisterCustumersActionPerformed
 
     public class main {
 
@@ -126,6 +146,7 @@ public final class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_StatusConexao;
     private javax.swing.JMenuBar jMenuBar_MenuPrincipal;
     private javax.swing.JMenuItem jMenuItem_Exit;
+    private javax.swing.JMenuItem jMenuItem_RegisterCustumers;
     private javax.swing.JMenuItem jMenuItem_RegistrationBills;
     private javax.swing.JMenuItem jMenuItem_Reports;
     private javax.swing.JMenu jMenu_File;
