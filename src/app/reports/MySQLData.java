@@ -274,7 +274,8 @@ public class MySQLData {
         }
     }
     //-----------------------------------------------------------------------//
-    //----------CADASTRAMENTO DE CLIENTE-----------//
+    //-------------------------CADASTRAMENTO DE CLIENTE---------------------//
+    //---------------------------------------------------------------------//
 
     public void cadastrarCliente(String nome, String telefone) {
         String query = "INSERT INTO clientes (nome, telefone) VALUES (?, ?)";
@@ -320,7 +321,7 @@ public class MySQLData {
         }
     }
 
-    private void atualizarTabelaClientes(String query, DefaultTableModel tableModel) {
+    public void atualizarTabelaClientes(String query, DefaultTableModel tableModel) {
         try {
             PreparedStatement statement = cnn.prepareStatement(query);
             ResultSet resultSet = statement.executeQuery();

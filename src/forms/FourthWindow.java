@@ -3,18 +3,19 @@ package forms;
 import app.reports.MySQLData;
 import java.awt.event.ActionEvent;
 import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.JOptionPane;
 import javax.swing.Timer;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+import javax.swing.table.DefaultTableModel;
 
 public class FourthWindow extends javax.swing.JInternalFrame {
 
     private final Timer timer;
     public Connection cnn;
+    private final MySQLData mysqlData;
 
     public FourthWindow() {
         initComponents();
@@ -23,6 +24,46 @@ public class FourthWindow extends javax.swing.JInternalFrame {
         });
         timer.start();
         atualizarDataHoraAtual();
+
+        // Adicione ouvintes de eventos aos campos de texto
+        jTextField_Nome.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                habilitarBotaoCadastrar();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                habilitarBotaoCadastrar();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                habilitarBotaoCadastrar();
+            }
+        });
+
+        jTextField_Telefone.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                habilitarBotaoCadastrar();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                habilitarBotaoCadastrar();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                habilitarBotaoCadastrar();
+            }
+        });
+        // Inicialize a instância da classe MySQLData
+        mysqlData = new MySQLData();
+
+        // Chame o método para preencher a tabela no construtor
+        carregarClientesNaTabela();
     }
 
     private void atualizarDataHoraAtual() {
@@ -68,6 +109,7 @@ public class FourthWindow extends javax.swing.JInternalFrame {
         jLabel10.setText("Telefone.:");
 
         jButton_CadastrarCliente.setText("Cadastrar Cliente");
+        jButton_CadastrarCliente.setEnabled(false);
         jButton_CadastrarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_CadastrarClienteActionPerformed(evt);
@@ -199,7 +241,27 @@ public class FourthWindow extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton_CadastrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_CadastrarClienteActionPerformed
-        //atualizarTabelaClientes();
+        // Obtenha o nome e telefone dos campos de texto
+        String nome = jTextField_Nome.getText();
+        String telefone = jTextField_Telefone.getText();
+
+        // Verifique se os campos não estão vazios antes de cadastrar no banco de dados
+        if (!nome.isEmpty() && !telefone.isEmpty()) {
+            // Chame o método cadastrarCliente da instância mysqlData
+            mysqlData.cadastrarCliente(nome, telefone);
+
+            // Limpe os campos após o cadastro
+            jTextField_Nome.setText("");
+            jTextField_Telefone.setText("");
+
+            // Atualize a tabela com os novos registros
+            String query = "SELECT idcliente, nome, telefone FROM clientes";
+            DefaultTableModel tableModel = (DefaultTableModel) jTable_Tabela.getModel();
+            mysqlData.atualizarTabelaClientes(query, tableModel);
+        } else {
+            // Trate o caso em que os campos estão vazios ou exiba uma mensagem de erro
+            JOptionPane.showMessageDialog(this, "Preencha todos os campos antes de cadastrar.", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
 
         int id = evt.getID();
         System.out.println("ID do evento: " + id);
@@ -232,4 +294,19 @@ public class FourthWindow extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextField_Nome;
     private javax.swing.JTextField jTextField_Telefone;
     // End of variables declaration//GEN-END:variables
+
+    private void habilitarBotaoCadastrar() {
+        String nome = jTextField_Nome.getText();
+        String telefone = jTextField_Telefone.getText();
+
+        boolean camposPreenchidos = !nome.isEmpty() && !telefone.isEmpty();
+        jButton_CadastrarCliente.setEnabled(camposPreenchidos);
+    }
+
+    private void carregarClientesNaTabela() {
+        DefaultTableModel tableModel = (DefaultTableModel) jTable_Tabela.getModel();
+
+        // Chame o método da instância mysqlData para preencher a tabela com registros de clientes
+        mysqlData.carregarClientesNaTabela("SELECT idcliente, nome, telefone FROM clientes", tableModel);
+    }
 }
