@@ -11,10 +11,11 @@ public class Avon {
     private String Cedente;
     private double codigoBarras;
     private Date dataVencimento;
+    private String formaPagamento;
     private float valorPagamento;
     private String situacao;
 
-    public Avon(int id, String produto, float preco, String categoria, String Cedente, double codigoBarras, Date dataVencimento, float valorPagamento, String situacao) {
+    public Avon(int id, String produto, float preco, String categoria, String Cedente, double codigoBarras, Date dataVencimento, String formaPagamento, float valorPagamento, String situacao) {
         this.id = id;
         this.produto = produto;
         this.preco = preco;
@@ -22,6 +23,7 @@ public class Avon {
         this.Cedente = Cedente;
         this.codigoBarras = codigoBarras;
         this.dataVencimento = dataVencimento;
+        this.formaPagamento = formaPagamento;
         this.valorPagamento = valorPagamento;
         this.situacao = situacao;
     }
@@ -80,6 +82,14 @@ public class Avon {
 
     public void setDataVencimento(Date dataVencimento) {
         this.dataVencimento = dataVencimento;
+    }
+
+    public String getFormaPagamento() {
+        return formaPagamento;
+    }
+
+    public void setFormaPagamento(String formaPagamento) {
+        this.formaPagamento = formaPagamento;
     }
 
     public float getValorPagamento() {

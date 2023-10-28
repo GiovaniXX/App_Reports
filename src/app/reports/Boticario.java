@@ -11,10 +11,11 @@ public class Boticario {
     private String Cedente;
     private double codigoBarras;
     private Date dataVencimento;
+    private String formaPagamento;
     private float valorPagamento;
     private String situacao;
 
-    public Boticario(int id, String produto, float preco, String categoria, String Cedente, double codigoBarras, Date dataVencimento, float valorPagamento, String situacao) {
+    public Boticario(int id, String produto, float preco, String categoria, String Cedente, double codigoBarras, Date dataVencimento, String formaPagamento, float valorPagamento, String situacao) {
         this.id = id;
         this.produto = produto;
         this.preco = preco;
@@ -22,6 +23,7 @@ public class Boticario {
         this.Cedente = Cedente;
         this.codigoBarras = codigoBarras;
         this.dataVencimento = dataVencimento;
+        this.formaPagamento = formaPagamento;
         this.valorPagamento = valorPagamento;
         this.situacao = situacao;
     }
@@ -33,6 +35,7 @@ public class Boticario {
     public void setId(int id) {
         this.id = id;
     }
+
     public String getProduto() {
         return produto;
     }
@@ -79,6 +82,14 @@ public class Boticario {
 
     public void setDataVencimento(Date dataVencimento) {
         this.dataVencimento = dataVencimento;
+    }
+
+    public String getFormaPagamento() {
+        return formaPagamento;
+    }
+
+    public void setFormaPagamento(String formaPagamento) {
+        this.formaPagamento = formaPagamento;
     }
 
     public float getValorPagamento() {
