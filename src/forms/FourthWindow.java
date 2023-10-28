@@ -92,6 +92,7 @@ public class FourthWindow extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable_Tabela = new javax.swing.JTable();
 
+        setClosable(true);
         setMaximumSize(new java.awt.Dimension(1920, 1080));
         setMinimumSize(new java.awt.Dimension(1366, 768));
         setPreferredSize(new java.awt.Dimension(1920, 1080));

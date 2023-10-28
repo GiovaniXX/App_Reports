@@ -1,11 +1,14 @@
 package app.reports;
 
+import app.reports.MySQLData;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
@@ -319,6 +322,29 @@ public class MySQLData {
         } catch (SQLException ex) {
             Logger.getLogger(MySQLData.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    public List<String> getTelefonesClientes() {
+        List<String> telefones = new ArrayList<>();
+
+        String query = "SELECT telefone FROM clientes";
+
+        try {
+            PreparedStatement statement = cnn.prepareStatement(query);
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                String telefone = resultSet.getString("telefone");
+                telefones.add(telefone);
+            }
+
+            resultSet.close();
+            statement.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(MySQLData.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return telefones;
     }
 
     public void atualizarTabelaClientes(String query, DefaultTableModel tableModel) {
