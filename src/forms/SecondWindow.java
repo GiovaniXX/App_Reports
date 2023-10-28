@@ -455,21 +455,16 @@ public class SecondWindow extends javax.swing.JInternalFrame {
 
                 // Verificar a forma de pagamento e formatar a mensagem adequadamente
                 switch (formaPagamento) {
-                    case "1x":
-                    case "2x":
-                    case "3x":
-                    case "4x":
+                    case "1x", "2x", "3x", "4x" -> {
                         mensagem += "Forma de Pagamento: Parcelado em " + formaPagamento + "\n";
                         for (int i = 1; i <= Integer.parseInt(formaPagamento); i++) {
                             mensagem += i + "° Pagamento\n" + calcularDataParcela(dataVencimento, i) + "\n";
                         }
-                        break;
-                    case "Pix":
+                    }
+                    case "Pix" ->
                         mensagem += "Forma de Pagamento: Pix\n";
-                        break;
-                    default:
+                    default ->
                         mensagem += "Forma de Pagamento: " + formaPagamento + "\n";
-                        break;
                 }
 
                 mensagem += "Valor a Pagar: " + valorPagar;

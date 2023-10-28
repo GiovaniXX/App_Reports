@@ -274,6 +274,15 @@ public class FourthWindow extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton_EditarClienteActionPerformed
 
     private void jButton_DeletarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_DeletarClienteActionPerformed
+        int idClienteParaExcluir = obterIDDoClienteASerExcluido(); // Substitua isso com a lógica para obter o ID do cliente a ser excluído
+        if (idClienteParaExcluir > 0) {
+            MySQLData mysqlData = new MySQLData();
+            mysqlData.excluirCliente(idClienteParaExcluir);
+            System.out.println("Cliente excluído com sucesso.");
+        } else {
+            System.out.println("Nenhum cliente selecionado para exclusão.");
+        }
+
         int id = evt.getID();
         System.out.println("ID do evento: " + id);
     }//GEN-LAST:event_jButton_DeletarClienteActionPerformed
@@ -309,5 +318,18 @@ public class FourthWindow extends javax.swing.JInternalFrame {
 
         // Chame o método da instância mysqlData para preencher a tabela com registros de clientes
         mysqlData.carregarClientesNaTabela("SELECT idcliente, nome, telefone FROM clientes", tableModel);
+    }
+
+    private int obterIDDoClienteASerExcluido() {
+        int selectedRow = jTable_Tabela.getSelectedRow();
+        if (selectedRow >= 0) {
+            try {
+                int idCliente = Integer.parseInt(jTable_Tabela.getValueAt(selectedRow, 0).toString());
+                return idCliente;
+            } catch (NumberFormatException e) {
+                System.out.println("Erro ao obter o ID do cliente.");
+            }
+        }
+        return -1;
     }
 }

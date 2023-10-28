@@ -14,8 +14,9 @@ public class Avon {
     private String formaPagamento;
     private float valorPagamento;
     private String situacao;
+    private int marca_id;
 
-    public Avon(int id, String produto, float preco, String categoria, String Cedente, double codigoBarras, Date dataVencimento, String formaPagamento, float valorPagamento, String situacao) {
+    public Avon(int id, String produto, float preco, String categoria, String Cedente, double codigoBarras, Date dataVencimento, String formaPagamento, float valorPagamento, String situacao, int marca_id) {
         this.id = id;
         this.produto = produto;
         this.preco = preco;
@@ -26,6 +27,7 @@ public class Avon {
         this.formaPagamento = formaPagamento;
         this.valorPagamento = valorPagamento;
         this.situacao = situacao;
+        this.marca_id = marca_id;
     }
 
     public int getId() {
@@ -106,5 +108,13 @@ public class Avon {
 
     public void setSituacao(String situacao) {
         this.situacao = situacao;
+    }
+
+    public int getMarcaId() {
+        return marca_id;
+    }
+
+    public void setMarcaId(int marca_id) {
+        this.marca_id = marca_id;
     }
 }
