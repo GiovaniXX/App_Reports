@@ -324,7 +324,7 @@ public class MySQLData {
         }
     }
 
-    public List<String> getTelefonesClientes() {
+    public List<String> telefonesClientes() {
         List<String> telefones = new ArrayList<>();
 
         String query = "SELECT telefone FROM clientes";

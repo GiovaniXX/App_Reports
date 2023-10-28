@@ -1,8 +1,14 @@
 package forms;
 
+import app.reports.MySQLData;
+
 import com.formdev.flatlaf.IntelliJTheme;
+import java.util.List;
+import javax.swing.JComboBox;
 
 public final class MainWindow extends javax.swing.JFrame {
+
+    private JComboBox jComboBox_EnviarMensagemWhatsapp;
 
     public MainWindow() {
         initComponents();

@@ -14,6 +14,7 @@ import java.nio.charset.StandardCharsets;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
@@ -40,6 +41,20 @@ public class SecondWindow extends javax.swing.JInternalFrame {
                 jTextField_DigiteCodigoBarrasFocusGained(evt);
             }
         });
+        preencherComboBoxTelefonesClientes();
+    }
+
+    private void preencherComboBoxTelefonesClientes() {
+        MySQLData mysqlData = new MySQLData();
+        List<String> telefones = mysqlData.telefonesClientes();
+
+        // Limpar o jComboBox para evitar duplicatas
+        jComboBox_EnviarMensagemWhatsapp.removeAllItems();
+
+        // Adicionar os telefones dos clientes ao JComboBox
+        for (String telefone : telefones) {
+            jComboBox_EnviarMensagemWhatsapp.addItem(telefone);
+        }
     }
 
     private void jTextField_DigiteCodigoBarrasFocusGained(java.awt.event.FocusEvent evt) {
@@ -178,11 +193,6 @@ public class SecondWindow extends javax.swing.JInternalFrame {
         });
 
         jComboBox_EnviarMensagemWhatsapp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione um telefone para o envio da mensagem", " " }));
-        jComboBox_EnviarMensagemWhatsapp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox_EnviarMensagemWhatsappActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -342,32 +352,6 @@ public class SecondWindow extends javax.swing.JInternalFrame {
         int id = evt.getID();
         System.out.println("ID do evento: " + id);
     }//GEN-LAST:event_jRadioButton_CodigoBarrasActionPerformed
-
-    private void jComboBox_EnviarMensagemWhatsappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_EnviarMensagemWhatsappActionPerformed
-        // Limpar o jComboBox para evitar duplicatas
-        jComboBox_EnviarMensagemWhatsapp.removeAllItems();
-
-        // Consultar o banco de dados para obter os números de telefone dos clientes
-        String query = "SELECT telefone FROM clientes";
-
-        try {
-            PreparedStatement statement = mysqlData.cnn.prepareStatement(query);
-            ResultSet resultSet = statement.executeQuery();
-
-            while (resultSet.next()) {
-                String telefone = resultSet.getString("telefone");
-                jComboBox_EnviarMensagemWhatsapp.addItem(telefone);
-            }
-
-            resultSet.close();
-            statement.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(FourthWindow.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        int id = evt.getID();
-        System.out.println("ID do evento: " + id);
-    }//GEN-LAST:event_jComboBox_EnviarMensagemWhatsappActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton_EnviarRegistrosWhatsApp;
