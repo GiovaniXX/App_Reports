@@ -69,6 +69,8 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
         jTextField_Categoria = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jComboBox_Pagamento = new javax.swing.JComboBox<>();
+        jLabel12 = new javax.swing.JLabel();
+        jTextField_MarcaId = new javax.swing.JTextField();
 
         setClosable(true);
         setTitle("Cadastro de Boletos bancários");
@@ -209,6 +211,10 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
 
         jComboBox_Pagamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione a forma de pagamento", "A vista", "1x", "2x", "3x", "4x", "Pix" }));
 
+        jLabel12.setText("Marca ID.:");
+
+        jTextField_MarcaId.setEnabled(false);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -270,13 +276,20 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
                                         .addGap(191, 191, 191))))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel7)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jTextField_Situacao, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabel11)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jComboBox_Pagamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jComboBox_Pagamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabel12)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(jTextField_MarcaId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabel7)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(jTextField_Situacao, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGap(2, 2, 2)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(115, 115, 115)
                                 .addComponent(Button_NovoCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -338,6 +351,10 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField_Situacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField_MarcaId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton_CadastrarBoletoBancoDados)
@@ -345,7 +362,7 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
                     .addComponent(jButton_LimparCampos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Button_NovoCadastro))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 621, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 587, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -363,6 +380,7 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
             String formaPagamento = Util.objectToString(jComboBox_Pagamento.getSelectedItem());
             float valorPagamento = (float) Util.parseFloatWithComma(jTextField_ValorPagamento.getText());
             String situacao = jTextField_Situacao.getText();
+            int marcaId = Util.objectToInt(jTextField_MarcaId.getText());
 
             MySQLData mySQLData = new MySQLData();
 
@@ -379,23 +397,23 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
             // Chamar o método apropriado com base na empresa selecionada
             switch (empresaSelecionada) {
                 case "Avon" -> {
-                    mySQLData.cadastrarInformacoesAvon(produto, preco, categoria, cedente, codigoBarras, dataVencimento, formaPagamento, valorPagamento, situacao);
+                    mySQLData.cadastrarInformacoesAvon(produto, preco, categoria, cedente, codigoBarras, dataVencimento, formaPagamento, valorPagamento, situacao, marcaId);
                     mySQLData.atualizarTabelaAvon((DefaultTableModel) jTable_Tabela.getModel());
                 }
                 case "Boticário" -> {
-                    mySQLData.cadastrarInformacoesBoticario(produto, preco, categoria, cedente, codigoBarras, dataVencimento, formaPagamento, valorPagamento, situacao);
+                    mySQLData.cadastrarInformacoesBoticario(produto, preco, categoria, cedente, codigoBarras, dataVencimento, formaPagamento, valorPagamento, situacao, marcaId);
                     mySQLData.atualizarTabelaBoticario((DefaultTableModel) jTable_Tabela.getModel());
                 }
                 case "Eudora" -> {
-                    mySQLData.cadastrarInformacoesEudora(produto, preco, categoria, cedente, codigoBarras, dataVencimento, formaPagamento, valorPagamento, situacao);
+                    mySQLData.cadastrarInformacoesEudora(produto, preco, categoria, cedente, codigoBarras, dataVencimento, formaPagamento, valorPagamento, situacao, marcaId);
                     mySQLData.atualizarTabelaEudora((DefaultTableModel) jTable_Tabela.getModel());
                 }
                 case "Golfran" -> {
-                    mySQLData.cadastrarInformacoesGolfran(produto, preco, categoria, cedente, codigoBarras, dataVencimento, formaPagamento, valorPagamento, situacao);
+                    mySQLData.cadastrarInformacoesGolfran(produto, preco, categoria, cedente, codigoBarras, dataVencimento, formaPagamento, valorPagamento, situacao, marcaId);
                     mySQLData.atualizarTabelaGolfran((DefaultTableModel) jTable_Tabela.getModel());
                 }
                 case "Natura" -> {
-                    mySQLData.cadastrarInformacoesNatura(produto, preco, categoria, cedente, codigoBarras, dataVencimento, formaPagamento, valorPagamento, situacao);
+                    mySQLData.cadastrarInformacoesNatura(produto, preco, categoria, cedente, codigoBarras, dataVencimento, formaPagamento, valorPagamento, situacao, marcaId);
                     mySQLData.atualizarTabelaNatura((DefaultTableModel) jTable_Tabela.getModel());
                 }
             }
@@ -414,6 +432,7 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
         jComboBox_Pagamento.setEnabled(false);
         jTextField_ValorPagamento.setEnabled(false);
         jTextField_Situacao.setEnabled(false);
+        jTextField_MarcaId.setEnabled(false);
 
         int id = evt.getID();
         System.out.println("ID do evento: " + id);
@@ -482,6 +501,7 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
         jTextField_DataVencimento.setText("");
         jTextField_ValorPagamento.setText("");
         jTextField_Situacao.setText("");
+        jTextField_MarcaId.setText("");
 
         int id = evt.getID();
         System.out.println("ID do evento: " + id);
@@ -505,6 +525,7 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
         jComboBox_Pagamento.setEnabled(true);
         jTextField_ValorPagamento.setEnabled(true);
         jTextField_Situacao.setEnabled(true);
+        jTextField_MarcaId.setEnabled(true);
 
         // Limpar os campos ou definir valores padrão
         jTextField_Produto.setText("");
@@ -516,6 +537,7 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
         jComboBox_Pagamento.setSelectedItem(0);
         jTextField_ValorPagamento.setText("");
         jTextField_Situacao.setText("");
+        jTextField_MarcaId.setText("");
 
         int id = evt.getID();
         System.out.println("ID do evento: " + id);
@@ -532,6 +554,7 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -548,6 +571,7 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextField_Cedente;
     private javax.swing.JTextField jTextField_CodigoBarras;
     private javax.swing.JTextField jTextField_DataVencimento;
+    private javax.swing.JTextField jTextField_MarcaId;
     private javax.swing.JTextField jTextField_Preco;
     private javax.swing.JTextField jTextField_Produto;
     private javax.swing.JTextField jTextField_Situacao;

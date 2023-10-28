@@ -438,8 +438,10 @@ public class SecondWindow extends javax.swing.JInternalFrame {
                 String cedente = jTable_Tabela.getValueAt(selectedRow, 4).toString();
                 String codigoBarras = jTable_Tabela.getValueAt(selectedRow, 5).toString();
                 String dataVencimento = jTable_Tabela.getValueAt(selectedRow, 6).toString();
-                String formaPagamento = Util.objectToString(jTable_Tabela.getValueAt(selectedRow, 7));
-                String valorPagar = jTable_Tabela.getValueAt(selectedRow, 8).toString();
+                String valorPagamento = jTable_Tabela.getValueAt(selectedRow, 7).toString();
+                String situacao = jTable_Tabela.getValueAt(selectedRow, 8).toString();
+                String marcaId = jTable_Tabela.getValueAt(selectedRow, 9).toString();
+                String formaPagamento = Util.objectToString(jTable_Tabela.getValueAt(selectedRow, 10));
 
                 // Formatar a mensagem a ser enviada
                 String mensagem = "Relatório da venda:\n\n"
@@ -450,8 +452,10 @@ public class SecondWindow extends javax.swing.JInternalFrame {
                         + "Cedente: " + cedente + "\n"
                         + "Código de Barras: " + codigoBarras + "\n"
                         + "Data de Vencimento: " + dataVencimento + "\n"
-                        + "Forma de Pagamento: " + formaPagamento + "\n"
-                        + "Valor a Pagar: " + valorPagar;
+                        + "valor Pagamento: " + valorPagamento + "\n"
+                        + "situacao: " + situacao + "\n"
+                        + "marcaId: " + marcaId + "\n"
+                        + "Forma Pagamento: " + formaPagamento + "\n";
 
                 // Verificar a forma de pagamento e formatar a mensagem adequadamente
                 switch (formaPagamento) {
@@ -467,7 +471,7 @@ public class SecondWindow extends javax.swing.JInternalFrame {
                         mensagem += "Forma de Pagamento: " + formaPagamento + "\n";
                 }
 
-                mensagem += "Valor a Pagar: " + valorPagar;
+                mensagem += "Valor a Pagar: " + formaPagamento;
 
                 // Enviar a mensagem pelo WhatsApp
                 enviarMensagemWhatsApp(numeroCliente, mensagem);
