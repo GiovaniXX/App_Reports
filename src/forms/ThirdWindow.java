@@ -68,7 +68,7 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
         jLabel10 = new javax.swing.JLabel();
         jTextField_Categoria = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox_Pagamento = new javax.swing.JComboBox<>();
 
         setClosable(true);
         setTitle("Cadastro de Boletos bancários");
@@ -201,7 +201,7 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
 
         jLabel11.setText("Forma Pagamento.:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione a forma de pagamento", "A vista", "1x", "2x", "3x", "4x", "Pix" }));
+        jComboBox_Pagamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione a forma de pagamento", "A vista", "1x", "2x", "3x", "4x", "Pix" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -270,7 +270,7 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabel11)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jComboBox_Pagamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(115, 115, 115)
                                 .addComponent(Button_NovoCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -327,7 +327,7 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
                 .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBox_Pagamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField_Situacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -354,6 +354,7 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
             String cedente = jTextField_Cedente.getText();
             String codigoBarras = convertStringToString(Util.extractFormattedNumber(jTextField_CodigoBarras.getText()));
             Date dataVencimento = Util.convertStringToDate(jTextField_DataVencimento.getText());
+            String formaPagamento = Util.objectToString(jComboBox_Pagamento.getSelectedItem());
             float valorPagamento = (float) Util.parseFloatWithComma(jTextField_ValorPagamento.getText());
             String situacao = jTextField_Situacao.getText();
 
@@ -372,23 +373,23 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
             // Chamar o método apropriado com base na empresa selecionada
             switch (empresaSelecionada) {
                 case "Avon" -> {
-                    mySQLData.cadastrarInformacoesAvon(produto, preco, categoria, cedente, codigoBarras, dataVencimento, valorPagamento, situacao);
+                    mySQLData.cadastrarInformacoesAvon(produto, preco, categoria, cedente, codigoBarras, dataVencimento, formaPagamento, valorPagamento, situacao);
                     mySQLData.atualizarTabelaAvon((DefaultTableModel) jTable_Tabela.getModel());
                 }
                 case "Boticário" -> {
-                    mySQLData.cadastrarInformacoesBoticario(produto, preco, categoria, cedente, codigoBarras, dataVencimento, valorPagamento, situacao);
+                    mySQLData.cadastrarInformacoesBoticario(produto, preco, categoria, cedente, codigoBarras, dataVencimento, formaPagamento, valorPagamento, situacao);
                     mySQLData.atualizarTabelaBoticario((DefaultTableModel) jTable_Tabela.getModel());
                 }
                 case "Eudora" -> {
-                    mySQLData.cadastrarInformacoesEudora(produto, preco, categoria, cedente, codigoBarras, dataVencimento, valorPagamento, situacao);
+                    mySQLData.cadastrarInformacoesEudora(produto, preco, categoria, cedente, codigoBarras, dataVencimento, formaPagamento, valorPagamento, situacao);
                     mySQLData.atualizarTabelaEudora((DefaultTableModel) jTable_Tabela.getModel());
                 }
                 case "Golfran" -> {
-                    mySQLData.cadastrarInformacoesGolfran(produto, preco, categoria, cedente, codigoBarras, dataVencimento, valorPagamento, situacao);
+                    mySQLData.cadastrarInformacoesGolfran(produto, preco, categoria, cedente, codigoBarras, dataVencimento, formaPagamento, valorPagamento, situacao);
                     mySQLData.atualizarTabelaGolfran((DefaultTableModel) jTable_Tabela.getModel());
                 }
                 case "Natura" -> {
-                    mySQLData.cadastrarInformacoesNatura(produto, preco, categoria, cedente, codigoBarras, dataVencimento, valorPagamento, situacao);
+                    mySQLData.cadastrarInformacoesNatura(produto, preco, categoria, cedente, codigoBarras, dataVencimento, formaPagamento, valorPagamento, situacao);
                     mySQLData.atualizarTabelaNatura((DefaultTableModel) jTable_Tabela.getModel());
                 }
             }
@@ -404,6 +405,7 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
         jTextField_Cedente.setEnabled(false);
         jTextField_CodigoBarras.setEnabled(false);
         jTextField_DataVencimento.setEnabled(false);
+        jComboBox_Pagamento.setEnabled(false);
         jTextField_ValorPagamento.setEnabled(false);
         jTextField_Situacao.setEnabled(false);
 
@@ -494,6 +496,7 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
         jTextField_Cedente.setEnabled(true);
         jTextField_CodigoBarras.setEnabled(true);
         jTextField_DataVencimento.setEnabled(true);
+        jComboBox_Pagamento.setEnabled(true);
         jTextField_ValorPagamento.setEnabled(true);
         jTextField_Situacao.setEnabled(true);
 
@@ -504,6 +507,7 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
         jTextField_Cedente.setText("");
         jTextField_CodigoBarras.setText("");
         jTextField_DataVencimento.setText("");
+        jComboBox_Pagamento.setSelectedItem(0);
         jTextField_ValorPagamento.setText("");
         jTextField_Situacao.setText("");
 
@@ -517,8 +521,8 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton_CadastrarBoletoBancoDados;
     private javax.swing.JButton jButton_ExcluirBoleto;
     private javax.swing.JButton jButton_LimparCampos;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox_Empresas;
+    private javax.swing.JComboBox<String> jComboBox_Pagamento;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

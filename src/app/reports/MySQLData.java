@@ -30,8 +30,8 @@ public class MySQLData {
     }
 
     //----------CADASTRAMENTO-----------//
-    public void cadastrarInformacoesAvon(String produto, float preco, String categoria, String cedente, String codigoBarras, Date dataVencimento, float valorPagamento, String situacao) {
-        String query = "INSERT INTO avon (produto, preco, categoria, cedente, codigoBarras, dataVencimento, valorPagamento, situacao) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    public void cadastrarInformacoesAvon(String produto, float preco, String categoria, String cedente, String codigoBarras, Date dataVencimento, String formaPagamento, float valorPagamento, String situacao) {
+        String query = "INSERT INTO avon (produto, preco, categoria, cedente, codigoBarras, dataVencimento, formaPagamento, valorPagamento, situacao) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
             PreparedStatement statement = cnn.prepareStatement(query);
@@ -41,8 +41,9 @@ public class MySQLData {
             statement.setString(4, cedente);
             statement.setString(5, codigoBarras);
             statement.setDate(6, new java.sql.Date(dataVencimento.getTime()));
-            statement.setFloat(7, valorPagamento);
-            statement.setString(8, situacao);
+            statement.setString(7, formaPagamento);
+            statement.setFloat(8, valorPagamento);
+            statement.setString(9, situacao);
             statement.executeUpdate();
             statement.close();
         } catch (SQLException ex) {
@@ -50,8 +51,8 @@ public class MySQLData {
         }
     }
 
-    public void cadastrarInformacoesBoticario(String produto, float preco, String categoria, String cedente, String codigoBarras, Date dataVencimento, float valorPagamento, String situacao) {
-        String query = "INSERT INTO boticario (produto, preco, categoria, cedente, codigoBarras, dataVencimento, valorPagamento, situacao) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    public void cadastrarInformacoesBoticario(String produto, float preco, String categoria, String cedente, String codigoBarras, Date dataVencimento, String formaPagamento, float valorPagamento, String situacao) {
+        String query = "INSERT INTO boticario (produto, preco, categoria, cedente, codigoBarras, dataVencimento, formaPagamento, valorPagamento, situacao) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
             PreparedStatement statement = cnn.prepareStatement(query);
@@ -61,8 +62,9 @@ public class MySQLData {
             statement.setString(4, cedente);
             statement.setString(5, codigoBarras);
             statement.setDate(6, new java.sql.Date(dataVencimento.getTime()));
-            statement.setFloat(7, valorPagamento);
-            statement.setString(8, situacao);
+            statement.setString(7, formaPagamento);
+            statement.setFloat(8, valorPagamento);
+            statement.setString(9, situacao);
             statement.executeUpdate();
             statement.close();
         } catch (SQLException ex) {
@@ -70,8 +72,8 @@ public class MySQLData {
         }
     }
 
-    public void cadastrarInformacoesEudora(String produto, float preco, String categoria, String cedente, String codigoBarras, Date dataVencimento, float valorPagamento, String situacao) {
-        String query = "INSERT INTO eudora (produto, preco, categoria, cedente, codigoBarras, dataVencimento, valorPagamento, situacao) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    public void cadastrarInformacoesEudora(String produto, float preco, String categoria, String cedente, String codigoBarras, Date dataVencimento, String formaPagamento, float valorPagamento, String situacao) {
+        String query = "INSERT INTO eudora (produto, preco, categoria, cedente, codigoBarras, dataVencimento, formaPagamento, valorPagamento, situacao) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
             PreparedStatement statement = cnn.prepareStatement(query);
@@ -81,8 +83,9 @@ public class MySQLData {
             statement.setString(4, cedente);
             statement.setString(5, codigoBarras);
             statement.setDate(6, new java.sql.Date(dataVencimento.getTime()));
-            statement.setFloat(7, valorPagamento);
-            statement.setString(8, situacao);
+            statement.setString(7, formaPagamento);
+            statement.setFloat(8, valorPagamento);
+            statement.setString(9, situacao);
             statement.executeUpdate();
             statement.close();
         } catch (SQLException ex) {
@@ -90,8 +93,8 @@ public class MySQLData {
         }
     }
 
-    public void cadastrarInformacoesGolfran(String produto, float preco, String categoria, String cedente, String codigoBarras, Date dataVencimento, float valorPagamento, String situacao) {
-        String query = "INSERT INTO golfran (produto, preco, categoria, cedente, codigoBarras, dataVencimento, valorPagamento, situacao) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    public void cadastrarInformacoesGolfran(String produto, float preco, String categoria, String cedente, String codigoBarras, Date dataVencimento, String formaPagamento, float valorPagamento, String situacao) {
+        String query = "INSERT INTO golfran (produto, preco, categoria, cedente, codigoBarras, dataVencimento, formaPagmento, valorPagamento, situacao) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
             PreparedStatement statement = cnn.prepareStatement(query);
@@ -101,8 +104,9 @@ public class MySQLData {
             statement.setString(4, cedente);
             statement.setString(5, codigoBarras);
             statement.setDate(6, new java.sql.Date(dataVencimento.getTime()));
-            statement.setFloat(7, valorPagamento);
-            statement.setString(8, situacao);
+            statement.setString(7, formaPagamento);
+            statement.setFloat(8, valorPagamento);
+            statement.setString(9, situacao);
             statement.executeUpdate();
             statement.close();
         } catch (SQLException ex) {
@@ -110,8 +114,8 @@ public class MySQLData {
         }
     }
 
-    public void cadastrarInformacoesNatura(String produto, float preco, String categoria, String cedente, String codigoBarras, Date dataVencimento, float valorPagamento, String situacao) {
-        String query = "INSERT INTO natura (produto, preco, categoria, cedente, codigoBarras, dataVencimento, valorPagamento, situacao) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    public void cadastrarInformacoesNatura(String produto, float preco, String categoria, String cedente, String codigoBarras, Date dataVencimento, String formaPagamento, float valorPagamento, String situacao) {
+        String query = "INSERT INTO natura (produto, preco, categoria, cedente, codigoBarras, dataVencimento, formaPagamento, valorPagamento, situacao) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
             PreparedStatement statement = cnn.prepareStatement(query);
@@ -121,8 +125,9 @@ public class MySQLData {
             statement.setString(4, cedente);
             statement.setString(5, codigoBarras);
             statement.setDate(6, new java.sql.Date(dataVencimento.getTime()));
-            statement.setFloat(7, valorPagamento);
-            statement.setString(8, situacao);
+            statement.setString(7, formaPagamento);
+            statement.setFloat(8, valorPagamento);
+            statement.setString(9, situacao);
             statement.executeUpdate();
             statement.close();
         } catch (SQLException ex) {
@@ -233,10 +238,11 @@ public class MySQLData {
                 String cedente = resultSet.getString("cedente");
                 String codigoBarras = resultSet.getString("codigoBarras");
                 Date dataVencimento = resultSet.getDate("dataVencimento");
+                String formaPagamento = resultSet.getString("formaPagamento");
                 float valorPagamento = resultSet.getFloat("valorPagamento");
                 String situacao = resultSet.getString("situacao");
 
-                Object[] rowData = {idboleto, produto, preco, categoria, cedente, codigoBarras, dataVencimento, valorPagamento, situacao};
+                Object[] rowData = {idboleto, produto, preco, categoria, cedente, codigoBarras, dataVencimento, formaPagamento, valorPagamento, situacao};
                 tableModel.addRow(rowData);
             }
 
@@ -262,10 +268,11 @@ public class MySQLData {
                 String cedente = resultSet.getString("cedente");
                 String codigoBarras = resultSet.getString("codigoBarras");
                 Date dataVencimento = resultSet.getDate("dataVencimento");
+                String formaPagamento = resultSet.getString("formaPagamento");
                 float valorPagamento = resultSet.getFloat("valorPagamento");
                 String situacao = resultSet.getString("situacao");
 
-                Object[] rowData = {idboleto, produto, preco, categoria, cedente, codigoBarras, dataVencimento, valorPagamento, situacao};
+                Object[] rowData = {idboleto, produto, preco, categoria, cedente, codigoBarras, dataVencimento, formaPagamento, valorPagamento, situacao};
                 tableModel.addRow(rowData);
             }
 
