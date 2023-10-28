@@ -1,6 +1,5 @@
 package app.reports;
 
-import app.reports.MySQLData;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;

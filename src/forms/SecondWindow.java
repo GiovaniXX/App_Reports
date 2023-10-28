@@ -4,14 +4,9 @@ import java.sql.Connection;
 import app.reports.MySQLData;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
-import java.sql.ResultSet;
-import java.sql.PreparedStatement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.net.URI;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
-import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -24,7 +19,6 @@ import javax.swing.table.DefaultTableModel;
 public class SecondWindow extends javax.swing.JInternalFrame {
 
     public Connection cnn;
-    private final MySQLData mysqlData = null;
     private final Timer timer;
 
     public SecondWindow() {
@@ -50,6 +44,9 @@ public class SecondWindow extends javax.swing.JInternalFrame {
 
         // Limpar o jComboBox para evitar duplicatas
         jComboBox_EnviarMensagemWhatsapp.removeAllItems();
+
+        // Adicione a mensagem padrão
+        jComboBox_EnviarMensagemWhatsapp.addItem("Selecione um número de telefone para o envio da mensagem");
 
         // Adicionar os telefones dos clientes ao JComboBox
         for (String telefone : telefones) {
@@ -417,33 +414,36 @@ public class SecondWindow extends javax.swing.JInternalFrame {
     private void enviarBoletoWhatsApp() {
         int selectedRow = jTable_Tabela.getSelectedRow();
         if (selectedRow != -1) {
-            // Obter os dados do boleto selecionado na tabela
-            String idBoleto = jTable_Tabela.getValueAt(selectedRow, 0).toString();
-            String produto = jTable_Tabela.getValueAt(selectedRow, 1).toString();
-            String preco = jTable_Tabela.getValueAt(selectedRow, 2).toString();
-            String categoria = jTable_Tabela.getValueAt(selectedRow, 3).toString();
-            String cedente = jTable_Tabela.getValueAt(selectedRow, 4).toString();
-            String codigoBarras = jTable_Tabela.getValueAt(selectedRow, 5).toString();
-            String dataVencimento = jTable_Tabela.getValueAt(selectedRow, 6).toString();
-            String valorPagar = jTable_Tabela.getValueAt(selectedRow, 7).toString();
+            // Obter o número de telefone selecionado no JComboBox
+            String numeroCliente = (String) jComboBox_EnviarMensagemWhatsapp.getSelectedItem();
 
-            // Formatar a mensagem a ser enviada
-            String mensagem = "Boleto a vencer:\n\n"
-                    + "ID do Boleto: " + idBoleto + "\n"
-                    + "Produto: " + produto + "\n"
-                    + "Preco: " + preco + "\n"
-                    + "categoria: " + categoria + "\n"
-                    + "Cedente: " + cedente + "\n"
-                    + "Código de Barras: " + codigoBarras + "\n"
-                    + "Data de Vencimento: " + dataVencimento + "\n"
-                    + "Valor a Pagar: " + valorPagar;
+            if (numeroCliente != null && !numeroCliente.isEmpty()) {
+                // Obter os dados do boleto selecionado na tabela
+                String idBoleto = jTable_Tabela.getValueAt(selectedRow, 0).toString();
+                String produto = jTable_Tabela.getValueAt(selectedRow, 1).toString();
+                String preco = jTable_Tabela.getValueAt(selectedRow, 2).toString();
+                String categoria = jTable_Tabela.getValueAt(selectedRow, 3).toString();
+                String cedente = jTable_Tabela.getValueAt(selectedRow, 4).toString();
+                String codigoBarras = jTable_Tabela.getValueAt(selectedRow, 5).toString();
+                String dataVencimento = jTable_Tabela.getValueAt(selectedRow, 6).toString();
+                String valorPagar = jTable_Tabela.getValueAt(selectedRow, 7).toString();
 
-            // Número de telefone para onde irá mensagem
-            String numeroCliente = "+5549999367954";
-            //String numeroCliente = "+5549999573756";
+                // Formatar a mensagem a ser enviada
+                String mensagem = "Relatório da venda:\n\n"
+                        + "ID do Boleto: " + idBoleto + "\n"
+                        + "Produto: " + produto + "\n"
+                        + "Preco: " + preco + "\n"
+                        + "categoria: " + categoria + "\n"
+                        + "Cedente: " + cedente + "\n"
+                        + "Código de Barras: " + codigoBarras + "\n"
+                        + "Data de Vencimento: " + dataVencimento + "\n"
+                        + "Valor a Pagar: " + valorPagar;
 
-            // Enviar a mensagem pelo WhatsApp
-            enviarMensagemWhatsApp(numeroCliente, mensagem);
+                // Enviar a mensagem pelo WhatsApp
+                enviarMensagemWhatsApp(numeroCliente, mensagem);
+            } else {
+                JOptionPane.showMessageDialog(this, "Selecione um número de telefone válido no ComboBox.");
+            }
         } else {
             JOptionPane.showMessageDialog(this, "Selecione um boleto na tabela.");
         }
