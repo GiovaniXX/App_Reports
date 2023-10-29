@@ -238,11 +238,11 @@ public class MySQLData {
                 String cedente = resultSet.getString("cedente");
                 String codigoBarras = resultSet.getString("codigoBarras");
                 Date dataVencimento = resultSet.getDate("dataVencimento");
-                String formaPagamento = resultSet.getString("formaPagamento");
                 float valorPagamento = resultSet.getFloat("valorPagamento");
+                String formaPagamento = resultSet.getString("formaPagamento");
                 String situacao = resultSet.getString("situacao");
 
-                Object[] rowData = {idboleto, produto, preco, categoria, cedente, codigoBarras, dataVencimento, formaPagamento, valorPagamento, situacao};
+                Object[] rowData = {idboleto, produto, preco, categoria, cedente, codigoBarras, dataVencimento, valorPagamento, formaPagamento, situacao};
                 tableModel.addRow(rowData);
             }
 
@@ -268,11 +268,11 @@ public class MySQLData {
                 String cedente = resultSet.getString("cedente");
                 String codigoBarras = resultSet.getString("codigoBarras");
                 Date dataVencimento = resultSet.getDate("dataVencimento");
-                String formaPagamento = resultSet.getString("formaPagamento");
                 float valorPagamento = resultSet.getFloat("valorPagamento");
+                String formaPagamento = resultSet.getString("formaPagamento");
                 String situacao = resultSet.getString("situacao");
 
-                Object[] rowData = {idboleto, produto, preco, categoria, cedente, codigoBarras, dataVencimento, formaPagamento, valorPagamento, situacao};
+                Object[] rowData = {idboleto, produto, preco, categoria, cedente, codigoBarras, dataVencimento, valorPagamento, formaPagamento, situacao};
                 tableModel.addRow(rowData);
             }
 

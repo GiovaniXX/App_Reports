@@ -25,6 +25,7 @@ public class SecondWindow extends javax.swing.JInternalFrame {
 
     public Connection cnn;
     private final Timer timer;
+    private String formaPagamento;
 
     public SecondWindow() {
         initComponents();
@@ -95,7 +96,6 @@ public class SecondWindow extends javax.swing.JInternalFrame {
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
         jComboBox_EnviarMensagemWhatsapp = new javax.swing.JComboBox<>();
-        jComboBox_FormaPagamento = new javax.swing.JComboBox<>();
 
         setClosable(true);
         setResizable(true);
@@ -142,20 +142,20 @@ public class SecondWindow extends javax.swing.JInternalFrame {
 
         jTable_Tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID Boleto", "Marca", "Produto", "Preco", "Categoria", "Cedente", "Código Barras", "Data de Vencimento", "Valor Pagamento", "Forma de Pagamento", "Situação"
+                "ID Boleto", "Produto", "Preco", "Categoria", "Cedente", "Código Barras", "Data de Vencimento", "Valor Pagamento", "Forma de Pagamento", "Situação"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.Float.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Float.class, java.lang.Object.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Float.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Float.class, java.lang.Object.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -172,27 +172,24 @@ public class SecondWindow extends javax.swing.JInternalFrame {
             jTable_Tabela.getColumnModel().getColumn(0).setMinWidth(70);
             jTable_Tabela.getColumnModel().getColumn(0).setPreferredWidth(70);
             jTable_Tabela.getColumnModel().getColumn(0).setMaxWidth(70);
-            jTable_Tabela.getColumnModel().getColumn(1).setMinWidth(100);
-            jTable_Tabela.getColumnModel().getColumn(1).setPreferredWidth(100);
-            jTable_Tabela.getColumnModel().getColumn(1).setMaxWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(2).setMinWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(2).setPreferredWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(2).setMaxWidth(100);
             jTable_Tabela.getColumnModel().getColumn(3).setMinWidth(100);
             jTable_Tabela.getColumnModel().getColumn(3).setPreferredWidth(100);
             jTable_Tabela.getColumnModel().getColumn(3).setMaxWidth(100);
-            jTable_Tabela.getColumnModel().getColumn(4).setMinWidth(100);
-            jTable_Tabela.getColumnModel().getColumn(4).setPreferredWidth(100);
-            jTable_Tabela.getColumnModel().getColumn(4).setMaxWidth(100);
-            jTable_Tabela.getColumnModel().getColumn(7).setMinWidth(200);
-            jTable_Tabela.getColumnModel().getColumn(7).setPreferredWidth(200);
-            jTable_Tabela.getColumnModel().getColumn(7).setMaxWidth(200);
-            jTable_Tabela.getColumnModel().getColumn(8).setMinWidth(100);
-            jTable_Tabela.getColumnModel().getColumn(8).setPreferredWidth(100);
-            jTable_Tabela.getColumnModel().getColumn(8).setMaxWidth(100);
-            jTable_Tabela.getColumnModel().getColumn(9).setMinWidth(150);
-            jTable_Tabela.getColumnModel().getColumn(9).setPreferredWidth(150);
-            jTable_Tabela.getColumnModel().getColumn(9).setMaxWidth(150);
-            jTable_Tabela.getColumnModel().getColumn(10).setMinWidth(100);
-            jTable_Tabela.getColumnModel().getColumn(10).setPreferredWidth(100);
-            jTable_Tabela.getColumnModel().getColumn(10).setMaxWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(6).setMinWidth(200);
+            jTable_Tabela.getColumnModel().getColumn(6).setPreferredWidth(200);
+            jTable_Tabela.getColumnModel().getColumn(6).setMaxWidth(200);
+            jTable_Tabela.getColumnModel().getColumn(7).setMinWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(7).setPreferredWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(7).setMaxWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(8).setMinWidth(150);
+            jTable_Tabela.getColumnModel().getColumn(8).setPreferredWidth(150);
+            jTable_Tabela.getColumnModel().getColumn(8).setMaxWidth(150);
+            jTable_Tabela.getColumnModel().getColumn(9).setMinWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(9).setPreferredWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(9).setMaxWidth(100);
         }
 
         jLabel_DataHoraAtualSistema.setPreferredSize(new java.awt.Dimension(0, 16));
@@ -205,8 +202,6 @@ public class SecondWindow extends javax.swing.JInternalFrame {
         });
 
         jComboBox_EnviarMensagemWhatsapp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione um telefone para o envio da mensagem", " " }));
-
-        jComboBox_FormaPagamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione a forma de pagamento", "A vista", "1x", "2x", "3x", "4x", "Pix" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -252,8 +247,7 @@ public class SecondWindow extends javax.swing.JInternalFrame {
                                     .addGap(18, 18, 18)
                                     .addComponent(jLabel_DataHoraAtualSistema, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jButton_EnviarRegistrosWhatsApp, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox_FormaPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButton_EnviarRegistrosWhatsApp, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -289,9 +283,7 @@ public class SecondWindow extends javax.swing.JInternalFrame {
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jComboBox_EnviarMensagemWhatsapp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jComboBox_FormaPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(58, 58, 58)
                 .addComponent(jButton_EnviarRegistrosWhatsApp)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -375,7 +367,6 @@ public class SecondWindow extends javax.swing.JInternalFrame {
     private javax.swing.JCheckBox jCheckBox_Pagos;
     private javax.swing.JCheckBox jCheckBox_Vencer;
     private javax.swing.JComboBox<String> jComboBox_EnviarMensagemWhatsapp;
-    private javax.swing.JComboBox<String> jComboBox_FormaPagamento;
     private javax.swing.JComboBox<String> jComboBox_PesquisarBoletoBancario;
     private com.toedter.calendar.JDateChooser jDateChooser_Data;
     private javax.swing.JLabel jLabel1;
@@ -448,34 +439,38 @@ public class SecondWindow extends javax.swing.JInternalFrame {
                 String codigoBarras = jTable_Tabela.getValueAt(selectedRow, 5).toString();
                 String dataVencimento = jTable_Tabela.getValueAt(selectedRow, 6).toString();
                 String valorPagamento = jTable_Tabela.getValueAt(selectedRow, 7).toString();
-                String situacao = jTable_Tabela.getValueAt(selectedRow, 8).toString();
-                String formaPagamento = Util.objectToString(jTable_Tabela.getValueAt(selectedRow, 9));
+                String formaPagamento = Util.objectToString(jTable_Tabela.getValueAt(selectedRow, 8));
+                String situacao = jTable_Tabela.getValueAt(selectedRow, 9).toString();
 
                 // Formatar a mensagem a ser enviada
                 String mensagem = "Relatório da venda:\n\n"
-                        + "ID do Boleto: " + idBoleto + "\n"
+                        + "ID da venda: " + idBoleto + "\n"
                         + "Produto: " + produto + "\n"
                         + "Preco: " + preco + "\n"
                         + "categoria: " + categoria + "\n"
                         + "Cedente: " + cedente + "\n"
-                        + "Código de Barras: " + codigoBarras + "\n"
+                        //+ "Código de Barras: " + codigoBarras + "\n"
                         + "Data de Vencimento: " + dataVencimento + "\n"
                         + "valor Pagamento: " + valorPagamento + "\n"
-                        + "situacao: " + situacao + "\n"
-                        + "Forma Pagamento: " + formaPagamento + "\n";
+                        + "Forma Pagamento: " + formaPagamento + "\n"
+                        + "situacao: " + situacao + "\n";
 
                 // Verificar a forma de pagamento e formatar a mensagem adequadamente
                 switch (formaPagamento) {
                     case "1x", "2x", "3x", "4x" -> {
                         mensagem += "Forma de Pagamento: Parcelado em " + formaPagamento + "\n";
-                        for (int i = 1; i <= Integer.parseInt(formaPagamento); i++) {
+                        // Obtem o número de parcelas (1, 2, 3, 4)
+                        int numParcelas = Integer.parseInt(formaPagamento.substring(0, 1));
+                        for (int i = 1; i <= numParcelas; i++) {
                             mensagem += i + "° Pagamento\n" + calcularDataParcela(dataVencimento, i) + "\n";
                         }
                     }
-                    case "Pix" ->
+                    case "Pix" -> {
                         mensagem += "Forma de Pagamento: Pix\n";
-                    default ->
+                    }
+                    default -> {
                         mensagem += "Forma de Pagamento: " + formaPagamento + "\n";
+                    }
                 }
 
                 mensagem += "Valor a Pagar: " + formaPagamento;
@@ -491,21 +486,50 @@ public class SecondWindow extends javax.swing.JInternalFrame {
     }
 
     private String calcularDataParcela(String dataVencimento, int parcela) {
+//        try {
+//            // Converter a data de vencimento para um objeto LocalDate
+//            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+//            LocalDate dataVencimentoLocalDate = LocalDate.parse(dataVencimento, formatter);
+//
+//            // Adicionar parcela - 1 meses para obter a data da parcela
+//            LocalDate dataParcela = dataVencimentoLocalDate.plusMonths(parcela - 1);
+//
+//            // Formatar a data da parcela de acordo com o seu formato desejado
+//            String dataParcelaFormatada = dataParcela.format(formatter);
+//
+//            return dataParcelaFormatada;
+//        } catch (Exception e) {
+//            Logger.getLogger(SecondWindow.class.getName()).log(Level.SEVERE, null, e);
+//            return "Erro ao calcular data da parcela"; // Retorna uma mensagem de erro
+//        }
+
         try {
-            // Converter a data de vencimento para um objeto LocalDate
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
             LocalDate dataVencimentoLocalDate = LocalDate.parse(dataVencimento, formatter);
+            LocalDate dataParcela = dataVencimentoLocalDate;
 
-            // Adicionar parcela - 1 meses para obter a data da parcela
-            LocalDate dataParcela = dataVencimentoLocalDate.plusMonths(parcela - 1);
+            // Verifique a forma de pagamento e ajuste as datas de pagamento
+            switch (formaPagamento) {
+                case "1x":
+                    // Nenhuma alteração, pagamento único
+                    break;
+                case "2x":
+                case "3x":
+                case "4x":
+                    dataParcela = dataParcela.plusMonths(parcela - 1);
+                    break;
+                case "Pix":
+                    // Nenhuma alteração, pagamento único
+                    break;
+                default:
+                    System.out.println("Forma de pagamento desconhecida: " + formaPagamento);
+                    break;
+            }
 
-            // Formatar a data da parcela de acordo com o seu formato desejado
-            String dataParcelaFormatada = dataParcela.format(formatter);
-
-            return dataParcelaFormatada;
+            return dataParcela.format(formatter);
         } catch (Exception e) {
             Logger.getLogger(SecondWindow.class.getName()).log(Level.SEVERE, null, e);
-            return "Erro ao calcular data da parcela"; // Retorna uma mensagem de erro
+            return "Erro ao calcular data da parcela";
         }
     }
 }

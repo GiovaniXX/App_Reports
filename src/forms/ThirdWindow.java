@@ -112,20 +112,20 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
 
         jTable_Tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID Boleto", "Marca", "Produto", "Preco", "Categoria", "Cedente", "Código Barras", "Data Vencimento", "Valor Pagamento", "Forma Pagamento", "Situação"
+                "ID Boleto", "Produto", "Preco", "Categoria", "Cedente", "Código Barras", "Data Vencimento", "Valor Pagamento", "Forma Pagamento", "Situação"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.Float.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Float.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Float.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Float.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -141,27 +141,24 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
             jTable_Tabela.getColumnModel().getColumn(0).setMinWidth(70);
             jTable_Tabela.getColumnModel().getColumn(0).setPreferredWidth(70);
             jTable_Tabela.getColumnModel().getColumn(0).setMaxWidth(70);
-            jTable_Tabela.getColumnModel().getColumn(1).setMinWidth(100);
-            jTable_Tabela.getColumnModel().getColumn(1).setPreferredWidth(100);
-            jTable_Tabela.getColumnModel().getColumn(1).setMaxWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(2).setMinWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(2).setPreferredWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(2).setMaxWidth(100);
             jTable_Tabela.getColumnModel().getColumn(3).setMinWidth(100);
             jTable_Tabela.getColumnModel().getColumn(3).setPreferredWidth(100);
             jTable_Tabela.getColumnModel().getColumn(3).setMaxWidth(100);
-            jTable_Tabela.getColumnModel().getColumn(4).setMinWidth(100);
-            jTable_Tabela.getColumnModel().getColumn(4).setPreferredWidth(100);
-            jTable_Tabela.getColumnModel().getColumn(4).setMaxWidth(100);
-            jTable_Tabela.getColumnModel().getColumn(7).setMinWidth(200);
-            jTable_Tabela.getColumnModel().getColumn(7).setPreferredWidth(200);
-            jTable_Tabela.getColumnModel().getColumn(7).setMaxWidth(200);
-            jTable_Tabela.getColumnModel().getColumn(8).setMinWidth(100);
-            jTable_Tabela.getColumnModel().getColumn(8).setPreferredWidth(100);
-            jTable_Tabela.getColumnModel().getColumn(8).setMaxWidth(100);
-            jTable_Tabela.getColumnModel().getColumn(9).setMinWidth(150);
-            jTable_Tabela.getColumnModel().getColumn(9).setPreferredWidth(150);
-            jTable_Tabela.getColumnModel().getColumn(9).setMaxWidth(150);
-            jTable_Tabela.getColumnModel().getColumn(10).setMinWidth(100);
-            jTable_Tabela.getColumnModel().getColumn(10).setPreferredWidth(100);
-            jTable_Tabela.getColumnModel().getColumn(10).setMaxWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(6).setMinWidth(200);
+            jTable_Tabela.getColumnModel().getColumn(6).setPreferredWidth(200);
+            jTable_Tabela.getColumnModel().getColumn(6).setMaxWidth(200);
+            jTable_Tabela.getColumnModel().getColumn(7).setMinWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(7).setPreferredWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(7).setMaxWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(8).setMinWidth(150);
+            jTable_Tabela.getColumnModel().getColumn(8).setPreferredWidth(150);
+            jTable_Tabela.getColumnModel().getColumn(8).setMaxWidth(150);
+            jTable_Tabela.getColumnModel().getColumn(9).setMinWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(9).setPreferredWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(9).setMaxWidth(100);
         }
 
         jLabel5.setText("Data e Hora Atual.:");
@@ -381,9 +378,9 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
             String categoria = jTextField_Categoria.getText();
             String cedente = jTextField_Cedente.getText();
             String codigoBarras = convertStringToString(Util.extractFormattedNumber(jTextField_CodigoBarras.getText()));
-            Date dataVencimento = Util.convertStringToDate(jTextField_DataVencimento.getText());
-            String formaPagamento = Util.objectToString(jComboBox_Pagamento.getSelectedItem());
+            Date dataVencimento = Util.convertStringToDate(jTextField_DataVencimento.getText());           
             float valorPagamento = (float) Util.parseFloatWithComma(jTextField_ValorPagamento.getText());
+            String formaPagamento = Util.objectToString(jComboBox_Pagamento.getSelectedItem());
             String situacao = jTextField_Situacao.getText();
 
             MySQLData mySQLData = new MySQLData();
