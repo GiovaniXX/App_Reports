@@ -136,6 +136,7 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTable_Tabela.setSelectionBackground(new java.awt.Color(0, 102, 51));
         jScrollPane1.setViewportView(jTable_Tabela);
         if (jTable_Tabela.getColumnModel().getColumnCount() > 0) {
             jTable_Tabela.getColumnModel().getColumn(0).setMinWidth(70);

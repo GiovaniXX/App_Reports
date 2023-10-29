@@ -166,7 +166,7 @@ public class SecondWindow extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable_Tabela.setSelectionBackground(new java.awt.Color(187, 187, 187));
+        jTable_Tabela.setSelectionBackground(new java.awt.Color(0, 102, 51));
         jScrollPane1.setViewportView(jTable_Tabela);
         if (jTable_Tabela.getColumnModel().getColumnCount() > 0) {
             jTable_Tabela.getColumnModel().getColumn(0).setMinWidth(70);
@@ -453,7 +453,7 @@ public class SecondWindow extends javax.swing.JInternalFrame {
                         + "Data de Vencimento: " + dataVencimento + "\n"
                         + "valor Pagamento: " + valorPagamento + "\n"
                         + "Forma Pagamento: " + formaPagamento + "\n"
-                        + "situacao: " + situacao + "\n";
+                        + "Situacao: " + situacao + "\n";
 
                 // Verificar a forma de pagamento e formatar a mensagem adequadamente
                 switch (formaPagamento) {
@@ -486,23 +486,6 @@ public class SecondWindow extends javax.swing.JInternalFrame {
     }
 
     private String calcularDataParcela(String dataVencimento, int parcela) {
-//        try {
-//            // Converter a data de vencimento para um objeto LocalDate
-//            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-//            LocalDate dataVencimentoLocalDate = LocalDate.parse(dataVencimento, formatter);
-//
-//            // Adicionar parcela - 1 meses para obter a data da parcela
-//            LocalDate dataParcela = dataVencimentoLocalDate.plusMonths(parcela - 1);
-//
-//            // Formatar a data da parcela de acordo com o seu formato desejado
-//            String dataParcelaFormatada = dataParcela.format(formatter);
-//
-//            return dataParcelaFormatada;
-//        } catch (Exception e) {
-//            Logger.getLogger(SecondWindow.class.getName()).log(Level.SEVERE, null, e);
-//            return "Erro ao calcular data da parcela"; // Retorna uma mensagem de erro
-//        }
-
         try {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
             LocalDate dataVencimentoLocalDate = LocalDate.parse(dataVencimento, formatter);
@@ -510,21 +493,17 @@ public class SecondWindow extends javax.swing.JInternalFrame {
 
             // Verifique a forma de pagamento e ajuste as datas de pagamento
             switch (formaPagamento) {
-                case "1x":
-                    // Nenhuma alteração, pagamento único
-                    break;
-                case "2x":
-                case "3x":
-                case "4x":
+                case "1x" -> {
+                }
+                case "2x", "3x", "4x" ->
                     dataParcela = dataParcela.plusMonths(parcela - 1);
-                    break;
-                case "Pix":
-                    // Nenhuma alteração, pagamento único
-                    break;
-                default:
+                case "Pix" -> {
+                }
+                default ->
                     System.out.println("Forma de pagamento desconhecida: " + formaPagamento);
-                    break;
             }
+            // Nenhuma alteração, pagamento único
+            // Nenhuma alteração, pagamento único
 
             return dataParcela.format(formatter);
         } catch (Exception e) {
