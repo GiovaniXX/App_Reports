@@ -112,20 +112,20 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
 
         jTable_Tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID Boleto", "Produto", "Preco", "Categoria", "Cedente", "Código Barras", "Data Vencimento", "Valor Pagamento", "Forma Pagamento", "Situação"
+                "ID Boleto", "Marca", "Produto", "Preco", "Categoria", "Cedente", "Código Barras", "Data Vencimento", "Valor Pagamento", "Forma Pagamento", "Situação"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Float.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Float.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.Float.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Float.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -141,24 +141,27 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
             jTable_Tabela.getColumnModel().getColumn(0).setMinWidth(70);
             jTable_Tabela.getColumnModel().getColumn(0).setPreferredWidth(70);
             jTable_Tabela.getColumnModel().getColumn(0).setMaxWidth(70);
-            jTable_Tabela.getColumnModel().getColumn(2).setMinWidth(100);
-            jTable_Tabela.getColumnModel().getColumn(2).setPreferredWidth(100);
-            jTable_Tabela.getColumnModel().getColumn(2).setMaxWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(1).setMinWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(1).setPreferredWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(1).setMaxWidth(100);
             jTable_Tabela.getColumnModel().getColumn(3).setMinWidth(100);
             jTable_Tabela.getColumnModel().getColumn(3).setPreferredWidth(100);
             jTable_Tabela.getColumnModel().getColumn(3).setMaxWidth(100);
-            jTable_Tabela.getColumnModel().getColumn(6).setMinWidth(200);
-            jTable_Tabela.getColumnModel().getColumn(6).setPreferredWidth(200);
-            jTable_Tabela.getColumnModel().getColumn(6).setMaxWidth(200);
-            jTable_Tabela.getColumnModel().getColumn(7).setMinWidth(100);
-            jTable_Tabela.getColumnModel().getColumn(7).setPreferredWidth(100);
-            jTable_Tabela.getColumnModel().getColumn(7).setMaxWidth(100);
-            jTable_Tabela.getColumnModel().getColumn(8).setMinWidth(150);
-            jTable_Tabela.getColumnModel().getColumn(8).setPreferredWidth(150);
-            jTable_Tabela.getColumnModel().getColumn(8).setMaxWidth(150);
-            jTable_Tabela.getColumnModel().getColumn(9).setMinWidth(100);
-            jTable_Tabela.getColumnModel().getColumn(9).setPreferredWidth(100);
-            jTable_Tabela.getColumnModel().getColumn(9).setMaxWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(4).setMinWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(4).setPreferredWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(4).setMaxWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(7).setMinWidth(200);
+            jTable_Tabela.getColumnModel().getColumn(7).setPreferredWidth(200);
+            jTable_Tabela.getColumnModel().getColumn(7).setMaxWidth(200);
+            jTable_Tabela.getColumnModel().getColumn(8).setMinWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(8).setPreferredWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(8).setMaxWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(9).setMinWidth(150);
+            jTable_Tabela.getColumnModel().getColumn(9).setPreferredWidth(150);
+            jTable_Tabela.getColumnModel().getColumn(9).setMaxWidth(150);
+            jTable_Tabela.getColumnModel().getColumn(10).setMinWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(10).setPreferredWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(10).setMaxWidth(100);
         }
 
         jLabel5.setText("Data e Hora Atual.:");
@@ -211,7 +214,8 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
 
         jComboBox_Pagamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione a forma de pagamento", "A vista", "1x", "2x", "3x", "4x", "Pix" }));
 
-        jLabel12.setText("Marca ID.:");
+        jLabel12.setText("Marca.:");
+        jLabel12.setEnabled(false);
 
         jTextField_MarcaId.setEnabled(false);
 
@@ -282,6 +286,7 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(layout.createSequentialGroup()
+                                            .addGap(12, 12, 12)
                                             .addComponent(jLabel12)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                             .addComponent(jTextField_MarcaId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -380,7 +385,6 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
             String formaPagamento = Util.objectToString(jComboBox_Pagamento.getSelectedItem());
             float valorPagamento = (float) Util.parseFloatWithComma(jTextField_ValorPagamento.getText());
             String situacao = jTextField_Situacao.getText();
-            int marcaId = Util.objectToInt(jTextField_MarcaId.getText());
 
             MySQLData mySQLData = new MySQLData();
 
@@ -397,23 +401,23 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
             // Chamar o método apropriado com base na empresa selecionada
             switch (empresaSelecionada) {
                 case "Avon" -> {
-                    mySQLData.cadastrarInformacoesAvon(produto, preco, categoria, cedente, codigoBarras, dataVencimento, formaPagamento, valorPagamento, situacao, marcaId);
+                    mySQLData.cadastrarInformacoesAvon(produto, preco, categoria, cedente, codigoBarras, dataVencimento, formaPagamento, valorPagamento, situacao);
                     mySQLData.atualizarTabelaAvon((DefaultTableModel) jTable_Tabela.getModel());
                 }
                 case "Boticário" -> {
-                    mySQLData.cadastrarInformacoesBoticario(produto, preco, categoria, cedente, codigoBarras, dataVencimento, formaPagamento, valorPagamento, situacao, marcaId);
+                    mySQLData.cadastrarInformacoesBoticario(produto, preco, categoria, cedente, codigoBarras, dataVencimento, formaPagamento, valorPagamento, situacao);
                     mySQLData.atualizarTabelaBoticario((DefaultTableModel) jTable_Tabela.getModel());
                 }
                 case "Eudora" -> {
-                    mySQLData.cadastrarInformacoesEudora(produto, preco, categoria, cedente, codigoBarras, dataVencimento, formaPagamento, valorPagamento, situacao, marcaId);
+                    mySQLData.cadastrarInformacoesEudora(produto, preco, categoria, cedente, codigoBarras, dataVencimento, formaPagamento, valorPagamento, situacao);
                     mySQLData.atualizarTabelaEudora((DefaultTableModel) jTable_Tabela.getModel());
                 }
                 case "Golfran" -> {
-                    mySQLData.cadastrarInformacoesGolfran(produto, preco, categoria, cedente, codigoBarras, dataVencimento, formaPagamento, valorPagamento, situacao, marcaId);
+                    mySQLData.cadastrarInformacoesGolfran(produto, preco, categoria, cedente, codigoBarras, dataVencimento, formaPagamento, valorPagamento, situacao);
                     mySQLData.atualizarTabelaGolfran((DefaultTableModel) jTable_Tabela.getModel());
                 }
                 case "Natura" -> {
-                    mySQLData.cadastrarInformacoesNatura(produto, preco, categoria, cedente, codigoBarras, dataVencimento, formaPagamento, valorPagamento, situacao, marcaId);
+                    mySQLData.cadastrarInformacoesNatura(produto, preco, categoria, cedente, codigoBarras, dataVencimento, formaPagamento, valorPagamento, situacao);
                     mySQLData.atualizarTabelaNatura((DefaultTableModel) jTable_Tabela.getModel());
                 }
             }
@@ -432,7 +436,6 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
         jComboBox_Pagamento.setEnabled(false);
         jTextField_ValorPagamento.setEnabled(false);
         jTextField_Situacao.setEnabled(false);
-        jTextField_MarcaId.setEnabled(false);
 
         int id = evt.getID();
         System.out.println("ID do evento: " + id);
@@ -501,7 +504,6 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
         jTextField_DataVencimento.setText("");
         jTextField_ValorPagamento.setText("");
         jTextField_Situacao.setText("");
-        jTextField_MarcaId.setText("");
 
         int id = evt.getID();
         System.out.println("ID do evento: " + id);
@@ -525,7 +527,6 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
         jComboBox_Pagamento.setEnabled(true);
         jTextField_ValorPagamento.setEnabled(true);
         jTextField_Situacao.setEnabled(true);
-        jTextField_MarcaId.setEnabled(true);
 
         // Limpar os campos ou definir valores padrão
         jTextField_Produto.setText("");
@@ -537,7 +538,6 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
         jComboBox_Pagamento.setSelectedItem(0);
         jTextField_ValorPagamento.setText("");
         jTextField_Situacao.setText("");
-        jTextField_MarcaId.setText("");
 
         int id = evt.getID();
         System.out.println("ID do evento: " + id);

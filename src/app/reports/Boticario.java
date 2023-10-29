@@ -14,9 +14,8 @@ public class Boticario {
     private String formaPagamento;
     private float valorPagamento;
     private String situacao;
-    private int marca_id;
 
-    public Boticario(int id, String produto, float preco, String categoria, String Cedente, double codigoBarras, Date dataVencimento, String formaPagamento, float valorPagamento, String situacao, int marca_id) {
+    public Boticario(int id, String produto, float preco, String categoria, String Cedente, double codigoBarras, Date dataVencimento, String formaPagamento, float valorPagamento, String situacao) {
         this.id = id;
         this.produto = produto;
         this.preco = preco;
@@ -27,7 +26,6 @@ public class Boticario {
         this.formaPagamento = formaPagamento;
         this.valorPagamento = valorPagamento;
         this.situacao = situacao;
-        this.marca_id = marca_id;
     }
 
     public int getId() {
@@ -108,13 +106,5 @@ public class Boticario {
 
     public void setSituacao(String situacao) {
         this.situacao = situacao;
-    }
-
-    public int getMarcaId() {
-        return marca_id;
-    }
-
-    public void setMarcaId(int marca_id) {
-        this.marca_id = marca_id;
     }
 }

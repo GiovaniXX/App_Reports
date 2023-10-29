@@ -111,6 +111,7 @@
                               <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
+                                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                                           <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Component id="jTextField_MarcaId" min="-2" max="-2" attributes="0"/>
@@ -297,8 +298,9 @@
         <Component class="javax.swing.JTable" name="jTable_Tabela">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="10" rowCount="4">
+              <Table columnCount="11" rowCount="4">
                 <Column editable="false" title="ID Boleto" type="java.lang.Integer"/>
+                <Column editable="false" title="Marca" type="java.lang.Integer"/>
                 <Column editable="false" title="Produto" type="java.lang.String"/>
                 <Column editable="false" title="Preco" type="java.lang.Float"/>
                 <Column editable="false" title="Categoria" type="java.lang.String"/>
@@ -313,6 +315,11 @@
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
               <TableColumnModel selectionModel="0">
                 <Column maxWidth="70" minWidth="70" prefWidth="70" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="100" minWidth="100" prefWidth="100" resizable="true">
                   <Title/>
                   <Editor/>
                   <Renderer/>
@@ -500,7 +507,8 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel12">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Marca ID.:"/>
+        <Property name="text" type="java.lang.String" value="Marca.:"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextField_MarcaId">

@@ -142,20 +142,20 @@ public class SecondWindow extends javax.swing.JInternalFrame {
 
         jTable_Tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID Boleto", "Produto", "Preco", "Categoria", "Cedente", "Código Barras", "Data de Vencimento", "Forma de Pagamento", "Valor Pagamento", "Situação"
+                "ID Boleto", "Marca", "Produto", "Preco", "Categoria", "Cedente", "Código Barras", "Data de Vencimento", "Valor Pagamento", "Forma de Pagamento", "Situação"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Float.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Float.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.Float.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Float.class, java.lang.Object.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -172,18 +172,27 @@ public class SecondWindow extends javax.swing.JInternalFrame {
             jTable_Tabela.getColumnModel().getColumn(0).setMinWidth(70);
             jTable_Tabela.getColumnModel().getColumn(0).setPreferredWidth(70);
             jTable_Tabela.getColumnModel().getColumn(0).setMaxWidth(70);
-            jTable_Tabela.getColumnModel().getColumn(2).setMinWidth(100);
-            jTable_Tabela.getColumnModel().getColumn(2).setPreferredWidth(100);
-            jTable_Tabela.getColumnModel().getColumn(2).setMaxWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(1).setMinWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(1).setPreferredWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(1).setMaxWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(3).setMinWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(3).setPreferredWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(3).setMaxWidth(100);
             jTable_Tabela.getColumnModel().getColumn(4).setMinWidth(100);
             jTable_Tabela.getColumnModel().getColumn(4).setPreferredWidth(100);
             jTable_Tabela.getColumnModel().getColumn(4).setMaxWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(7).setMinWidth(200);
+            jTable_Tabela.getColumnModel().getColumn(7).setPreferredWidth(200);
+            jTable_Tabela.getColumnModel().getColumn(7).setMaxWidth(200);
             jTable_Tabela.getColumnModel().getColumn(8).setMinWidth(100);
             jTable_Tabela.getColumnModel().getColumn(8).setPreferredWidth(100);
             jTable_Tabela.getColumnModel().getColumn(8).setMaxWidth(100);
-            jTable_Tabela.getColumnModel().getColumn(9).setMinWidth(100);
-            jTable_Tabela.getColumnModel().getColumn(9).setPreferredWidth(100);
-            jTable_Tabela.getColumnModel().getColumn(9).setMaxWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(9).setMinWidth(150);
+            jTable_Tabela.getColumnModel().getColumn(9).setPreferredWidth(150);
+            jTable_Tabela.getColumnModel().getColumn(9).setMaxWidth(150);
+            jTable_Tabela.getColumnModel().getColumn(10).setMinWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(10).setPreferredWidth(100);
+            jTable_Tabela.getColumnModel().getColumn(10).setMaxWidth(100);
         }
 
         jLabel_DataHoraAtualSistema.setPreferredSize(new java.awt.Dimension(0, 16));
@@ -440,8 +449,7 @@ public class SecondWindow extends javax.swing.JInternalFrame {
                 String dataVencimento = jTable_Tabela.getValueAt(selectedRow, 6).toString();
                 String valorPagamento = jTable_Tabela.getValueAt(selectedRow, 7).toString();
                 String situacao = jTable_Tabela.getValueAt(selectedRow, 8).toString();
-                String marcaId = jTable_Tabela.getValueAt(selectedRow, 9).toString();
-                String formaPagamento = Util.objectToString(jTable_Tabela.getValueAt(selectedRow, 10));
+                String formaPagamento = Util.objectToString(jTable_Tabela.getValueAt(selectedRow, 9));
 
                 // Formatar a mensagem a ser enviada
                 String mensagem = "Relatório da venda:\n\n"
@@ -454,7 +462,6 @@ public class SecondWindow extends javax.swing.JInternalFrame {
                         + "Data de Vencimento: " + dataVencimento + "\n"
                         + "valor Pagamento: " + valorPagamento + "\n"
                         + "situacao: " + situacao + "\n"
-                        + "marcaId: " + marcaId + "\n"
                         + "Forma Pagamento: " + formaPagamento + "\n";
 
                 // Verificar a forma de pagamento e formatar a mensagem adequadamente
