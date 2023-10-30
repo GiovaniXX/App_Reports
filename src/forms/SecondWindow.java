@@ -446,14 +446,14 @@ public class SecondWindow extends javax.swing.JInternalFrame {
                 String mensagem = "Relatório da venda:\n\n"
                         + "ID da venda: " + idBoleto + "\n"
                         + "Produto: " + produto + "\n"
-                        + "Preco: " + preco + "\n"
+                        + "Preço do Produto: " + preco + "\n"
                         + "categoria: " + categoria + "\n"
                         + "Cedente: " + cedente + "\n"
                         //+ "Código de Barras: " + codigoBarras + "\n"
-                        + "Data de Vencimento: " + dataVencimento + "\n"
-                        + "valor Pagamento: " + valorPagamento + "\n"
+                        + "Data da venda: " + dataVencimento + "\n"
+                        + "Valor final a pagar: " + valorPagamento + "\n"
                         + "Forma Pagamento: " + formaPagamento + "\n"
-                        + "Situacao: " + situacao + "\n";
+                        + "Situação: " + situacao + "\n";
 
                 // Verificar a forma de pagamento e formatar a mensagem adequadamente
                 switch (formaPagamento) {
@@ -487,7 +487,7 @@ public class SecondWindow extends javax.swing.JInternalFrame {
 
     private String calcularDataParcela(String dataVencimento, int parcela) {
         try {
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
             LocalDate dataVencimentoLocalDate = LocalDate.parse(dataVencimento, formatter);
             LocalDate dataParcela = dataVencimentoLocalDate;
 
@@ -502,8 +502,6 @@ public class SecondWindow extends javax.swing.JInternalFrame {
                 default ->
                     System.out.println("Forma de pagamento desconhecida: " + formaPagamento);
             }
-            // Nenhuma alteração, pagamento único
-            // Nenhuma alteração, pagamento único
 
             return dataParcela.format(formatter);
         } catch (Exception e) {
