@@ -226,7 +226,7 @@ public class SecondWindow extends javax.swing.JInternalFrame {
                                                 .addComponent(jCheckBox_Vencer)
                                                 .addGap(18, 18, 18)
                                                 .addComponent(jCheckBox_Pagos))
-                                            .addComponent(jTextField_DigiteCodigoBarras, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(jTextField_DigiteCodigoBarras, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1896, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -487,9 +487,10 @@ public class SecondWindow extends javax.swing.JInternalFrame {
 
     private String calcularDataParcela(String dataVencimento, int parcela) {
         try {
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
-            LocalDate dataVencimentoLocalDate = LocalDate.parse(dataVencimento, formatter);
-            LocalDate dataParcela = dataVencimentoLocalDate;
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            LocalDate ld = LocalDate.parse(dataVencimento, formatter);
+            //LocalDate ld = Util.formatDate(dataVencimento);
+            LocalDate dataParcela = ld;
 
             // Verifique a forma de pagamento e ajuste as datas de pagamento
             switch (formaPagamento) {
@@ -504,6 +505,7 @@ public class SecondWindow extends javax.swing.JInternalFrame {
             }
 
             return dataParcela.format(formatter);
+
         } catch (Exception e) {
             Logger.getLogger(SecondWindow.class.getName()).log(Level.SEVERE, null, e);
             return "Erro ao calcular data da parcela";

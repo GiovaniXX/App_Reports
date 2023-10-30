@@ -3,6 +3,8 @@ package app.reports;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Date;
 
 public class Util {
@@ -24,8 +26,14 @@ public class Util {
         }
     }
 
+    public static LocalDate convertStringToLocalDate(String dateString) throws ParseException {
+        Date date = convertStringToDate(dateString);
+        LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        return localDate;
+    }
+
     public static Date convertStringToDate(String dateString) throws ParseException {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         Date date = simpleDateFormat.parse(dateString);
         return date;
     }
@@ -103,5 +111,10 @@ public class Util {
 
     public static String convertStringToString(String str) {
         return str;
+    }
+
+    public static String formatDateToDDMMYYYY(Date date) {
+        SimpleDateFormat formatoTexto = new SimpleDateFormat("dd/MM/yyyy");
+        return formatoTexto.format(date);
     }
 }
