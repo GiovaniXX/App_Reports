@@ -75,7 +75,6 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jComboBox_EnviarMensagemWhatsapp" alignment="1" min="-2" pref="408" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
@@ -84,7 +83,10 @@
                               </Group>
                               <Component id="jSeparator4" alignment="0" min="-2" pref="518" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jButton_EnviarRegistrosWhatsApp" alignment="1" min="-2" pref="408" max="-2" attributes="0"/>
+                          <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="jButton_EnviarRegistrosWhatsApp" alignment="1" max="32767" attributes="0"/>
+                              <Component id="jComboBox_EnviarMensagemWhatsapp" alignment="1" pref="408" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
@@ -130,9 +132,9 @@
               <Component id="jSeparator4" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jComboBox_EnviarMensagemWhatsapp" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
-              <Component id="jButton_EnviarRegistrosWhatsApp" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="jButton_EnviarRegistrosWhatsApp" min="-2" pref="57" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jSeparator3" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jScrollPane1" pref="672" max="32767" attributes="0"/>
@@ -311,14 +313,6 @@
     </Component>
     <Component class="javax.swing.JSeparator" name="jSeparator3">
     </Component>
-    <Component class="javax.swing.JButton" name="jButton_EnviarRegistrosWhatsApp">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Enviar Registros para o WhatsApp"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_EnviarRegistrosWhatsAppActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JSeparator" name="jSeparator2">
     </Component>
     <Component class="javax.swing.JSeparator" name="jSeparator4">
@@ -335,6 +329,24 @@
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
+    </Component>
+    <Component class="customization.MyButton" name="jButton_EnviarRegistrosWhatsApp">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="7a" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Enviar Registro WhatsApp"/>
+        <Property name="color" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="7a" type="rgb"/>
+        </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="18" style="1"/>
+        </Property>
+        <Property name="radius" type="int" value="50"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_EnviarRegistrosWhatsAppActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

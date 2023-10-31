@@ -92,10 +92,10 @@ public class SecondWindow extends javax.swing.JInternalFrame {
         jLabel_DataHoraAtualSistema = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
-        jButton_EnviarRegistrosWhatsApp = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
         jComboBox_EnviarMensagemWhatsapp = new javax.swing.JComboBox<>();
+        jButton_EnviarRegistrosWhatsApp = new customization.MyButton();
 
         setClosable(true);
         setResizable(true);
@@ -194,14 +194,18 @@ public class SecondWindow extends javax.swing.JInternalFrame {
 
         jLabel_DataHoraAtualSistema.setPreferredSize(new java.awt.Dimension(0, 16));
 
-        jButton_EnviarRegistrosWhatsApp.setText("Enviar Registros para o WhatsApp");
+        jComboBox_EnviarMensagemWhatsapp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione um telefone para o envio da mensagem", " " }));
+
+        jButton_EnviarRegistrosWhatsApp.setBackground(new java.awt.Color(122, 0, 0));
+        jButton_EnviarRegistrosWhatsApp.setText("Enviar Registro WhatsApp");
+        jButton_EnviarRegistrosWhatsApp.setColor(new java.awt.Color(122, 0, 0));
+        jButton_EnviarRegistrosWhatsApp.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jButton_EnviarRegistrosWhatsApp.setRadius(50);
         jButton_EnviarRegistrosWhatsApp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_EnviarRegistrosWhatsAppActionPerformed(evt);
             }
         });
-
-        jComboBox_EnviarMensagemWhatsapp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione um telefone para o envio da mensagem", " " }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -240,14 +244,15 @@ public class SecondWindow extends javax.swing.JInternalFrame {
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jComboBox_EnviarMensagemWhatsapp, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabel1)
                                     .addGap(18, 18, 18)
                                     .addComponent(jLabel_DataHoraAtualSistema, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jButton_EnviarRegistrosWhatsApp, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jButton_EnviarRegistrosWhatsApp, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jComboBox_EnviarMensagemWhatsapp, javax.swing.GroupLayout.Alignment.TRAILING, 0, 408, Short.MAX_VALUE)))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -283,9 +288,9 @@ public class SecondWindow extends javax.swing.JInternalFrame {
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jComboBox_EnviarMensagemWhatsapp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(58, 58, 58)
-                .addComponent(jButton_EnviarRegistrosWhatsApp)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
+                .addComponent(jButton_EnviarRegistrosWhatsApp, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 672, Short.MAX_VALUE)
@@ -294,13 +299,6 @@ public class SecondWindow extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton_EnviarRegistrosWhatsAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_EnviarRegistrosWhatsAppActionPerformed
-        enviarBoletoWhatsApp();
-
-        int id = evt.getID();
-        System.out.println("ID do evento: " + id);
-    }//GEN-LAST:event_jButton_EnviarRegistrosWhatsAppActionPerformed
 
     private void jComboBox_PesquisarBoletoBancarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_PesquisarBoletoBancarioActionPerformed
         String empresaSelecionada = (String) jComboBox_PesquisarBoletoBancario.getSelectedItem();
@@ -362,8 +360,15 @@ public class SecondWindow extends javax.swing.JInternalFrame {
         System.out.println("ID do evento: " + id);
     }//GEN-LAST:event_jRadioButton_CodigoBarrasActionPerformed
 
+    private void jButton_EnviarRegistrosWhatsAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_EnviarRegistrosWhatsAppActionPerformed
+        enviarBoletoWhatsApp();
+
+        int id = evt.getID();
+        System.out.println("ID do evento: " + id);
+    }//GEN-LAST:event_jButton_EnviarRegistrosWhatsAppActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton_EnviarRegistrosWhatsApp;
+    private customization.MyButton jButton_EnviarRegistrosWhatsApp;
     private javax.swing.JCheckBox jCheckBox_Pagos;
     private javax.swing.JCheckBox jCheckBox_Vencer;
     private javax.swing.JComboBox<String> jComboBox_EnviarMensagemWhatsapp;
