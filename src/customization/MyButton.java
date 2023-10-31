@@ -1,120 +1,106 @@
 package customization;
 
 import java.awt.Color;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import javax.swing.JButton;
 
-public class MyButton extends JButton implements MouseListener {
+public final class MyButton extends JButton {
 
+    public boolean isOver() {
+        return over;
+    }
+
+    public void setOver(boolean over) {
+        this.over = over;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
+        setBackground(color);
+    }
+
+    public Color getColorOver() {
+        return colorOver;
+    }
+
+    public void setColorOver(Color colorOver) {
+        this.colorOver = colorOver;
+    }
+
+    public Color getColorClick() {
+        return colorClick;
+    }
+
+    public void setColorClick(Color colorClick) {
+        this.colorClick = colorClick;
+    }
+
+    public Color getBorderColor() {
+        return borderColor;
+    }
+
+    public void setBorderColor(Color borderColor) {
+        this.borderColor = borderColor;
+    }
+
+    public int getRadius() {
+        return radius;
+    }
+
+    public void setRadius(int radius) {
+        this.radius = radius;
+    }
+
+    public MyButton() {
+        setColor(Color.WHITE);
+        colorOver = new Color(0, 107, 161);
+        colorClick = new Color(0, 107, 161);
+        borderColor = new Color(0, 107, 161);
+        setContentAreaFilled(false);
+
+        addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent me) {
+                setBackground(colorOver);
+                over = true;
+            }
+
+            @Override
+            public void mouseExited(MouseEvent me) {
+                setBackground(color);
+                over = false;
+            }
+
+            @Override
+            public void mousePressed(MouseEvent me) {
+                setBackground(colorClick);
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent me) {
+                if (over) {
+                    setBackground(colorOver);
+                } else {
+                    setBackground(color);
+                }
+            }
+        });
+    }
+
+    private boolean over;
+    private Color color;
+    private Color colorOver;
+    private Color colorClick;
+    private Color borderColor;
     private int radius = 0;
-    private Color colorHover = new Color(153, 0, 0);
-    private Color colorPressed = new Color(0, 0, 0);
-    private Color colorNormal = new Color(255, 0, 0);
-    private Color colorTextHover = new Color(255, 255, 255);
-    private Color colorTextPressd = new Color(0, 0, 0);
-    private Color colorTextNormal = new Color(255, 255, 255);
-
-    public MyButton(Color White) {
-        this.setBorder(null);
-        this.setContentAreaFilled(false);
-        this.setOpaque(true);
-        this.setFont(new Font("Tahoma", Font.BOLD, 14));
-        this.setBackground(Color.red);
-        this.setForeground(White);
-        this.setPreferredSize(new Dimension(200, 40));
-        this.setSize(200, 40);
-        this.setCursor(new Cursor(12));
-
-        addMouseListener(this);
-    }
-
-    @Override
-    public void mouseClicked(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-        this.setBackground(this.colorPressed);
-        this.setForeground(this.colorTextPressd);
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-        this.setBackground(this.colorHover);
-        this.setForeground(this.colorTextHover);
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-        this.setBackground(this.colorHover);
-        this.setForeground(this.colorTextHover);
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-        this.setBackground(this.colorNormal);
-        this.setForeground(this.colorTextNormal);
-    }
-
-    public Color getColorHover() {
-        return colorHover;
-    }
-
-    public void setColorHover(Color colorHover) {
-        this.colorHover = colorHover;
-    }
-
-    public Color getColorNormal() {
-        return colorNormal;
-    }
-
-    public void setColorNormal(Color colorNormal) {
-        this.colorNormal = colorNormal;
-        this.setBackground(this.colorNormal);
-    }
-
-    public Color getColorTextHover() {
-        return colorTextHover;
-    }
-
-    public void setColorTextHover(Color colorTextHover) {
-        this.colorTextHover = colorTextHover;
-    }
-
-    public Color getColorTextNormal() {
-        return colorTextNormal;
-    }
-
-    public void setColorTextNormal(Color colorTextNormal) {
-        this.colorTextNormal = colorTextNormal;
-        this.setForeground(this.colorTextNormal);
-    }
-
-    public Color getColorPressed() {
-        return colorPressed;
-    }
-
-    public void setColorPressed(Color colorPressed) {
-        this.colorPressed = colorPressed;
-        this.setBackground(this.colorPressed);
-    }
-
-    public Color getColorTextPressd() {
-        return colorTextPressd;
-    }
-
-    public void setColorTextPressd(Color colorTextPressd) {
-        this.colorTextPressd = colorTextPressd;
-        this.setForeground(this.colorTextPressd);
-    }
 
     @Override
     protected void paintComponent(Graphics grphcs) {
