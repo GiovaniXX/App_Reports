@@ -26,6 +26,7 @@ public class SecondWindow extends javax.swing.JInternalFrame {
     public Connection cnn;
     private final Timer timer;
     private String formaPagamento;
+    private DateTimeFormatter formatter;
 
     public SecondWindow() {
         initComponents();
@@ -49,14 +50,14 @@ public class SecondWindow extends javax.swing.JInternalFrame {
         List<String> telefones = mysqlData.telefonesClientes();
 
         // Limpar o jComboBox para evitar duplicatas
-        jComboBox_EnviarMensagemWhatsapp.removeAllItems();
+        jComboBox_SelecioneNumeroTelefone.removeAllItems();
 
         // Adicione a mensagem padrão
-        jComboBox_EnviarMensagemWhatsapp.addItem("Selecione um número de telefone para o envio da mensagem");
+        jComboBox_SelecioneNumeroTelefone.addItem("Selecione um número de telefone para o envio da mensagem");
 
         // Adicionar os telefones dos clientes ao JComboBox
         for (String telefone : telefones) {
-            jComboBox_EnviarMensagemWhatsapp.addItem(telefone);
+            jComboBox_SelecioneNumeroTelefone.addItem(telefone);
         }
     }
 
@@ -94,7 +95,7 @@ public class SecondWindow extends javax.swing.JInternalFrame {
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
-        jComboBox_EnviarMensagemWhatsapp = new javax.swing.JComboBox<>();
+        jComboBox_SelecioneNumeroTelefone = new javax.swing.JComboBox<>();
         jButton_EnviarRegistrosWhatsApp = new customization.MyButton();
 
         setClosable(true);
@@ -194,7 +195,7 @@ public class SecondWindow extends javax.swing.JInternalFrame {
 
         jLabel_DataHoraAtualSistema.setPreferredSize(new java.awt.Dimension(0, 16));
 
-        jComboBox_EnviarMensagemWhatsapp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione um telefone para o envio da mensagem", " " }));
+        jComboBox_SelecioneNumeroTelefone.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione um telefone para o envio da mensagem", " " }));
 
         jButton_EnviarRegistrosWhatsApp.setBackground(new java.awt.Color(122, 0, 0));
         jButton_EnviarRegistrosWhatsApp.setText("Enviar Registro WhatsApp");
@@ -252,7 +253,7 @@ public class SecondWindow extends javax.swing.JInternalFrame {
                                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jButton_EnviarRegistrosWhatsApp, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jComboBox_EnviarMensagemWhatsapp, javax.swing.GroupLayout.Alignment.TRAILING, 0, 408, Short.MAX_VALUE)))
+                                .addComponent(jComboBox_SelecioneNumeroTelefone, javax.swing.GroupLayout.Alignment.TRAILING, 0, 408, Short.MAX_VALUE)))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -287,7 +288,7 @@ public class SecondWindow extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jComboBox_EnviarMensagemWhatsapp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jComboBox_SelecioneNumeroTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton_EnviarRegistrosWhatsApp, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -361,6 +362,26 @@ public class SecondWindow extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jRadioButton_CodigoBarrasActionPerformed
 
     private void jButton_EnviarRegistrosWhatsAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_EnviarRegistrosWhatsAppActionPerformed
+        // Verifica se foi selecionada uma empresa
+        if (((String) jComboBox_PesquisarBoletoBancario.getSelectedItem()).isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor, selecione uma empresa.", "Aviso", JOptionPane.WARNING_MESSAGE);
+            return;  // Sai do método se a empresa não estiver selecionada
+        }
+
+        // Verifica se foi selecionado um número de telefone
+        if (((String) jComboBox_SelecioneNumeroTelefone.getSelectedItem()).isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor, selecione um número de telefone.", "Aviso", JOptionPane.WARNING_MESSAGE);
+            return;  // Sai do método se o número de telefone não estiver selecionado
+        }
+
+        // Verifica se foi selecionado um boleto na tabela
+        int selectedRow = jTable_Tabela.getSelectedRow();
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(this, "Selecione um boleto na tabela.", "Aviso", JOptionPane.WARNING_MESSAGE);
+            return;  // Sai do método se nenhum boleto estiver selecionado
+        }
+
+        // Chama o método enviarBoletoWhatsApp() se todas as verificações passarem
         enviarBoletoWhatsApp();
 
         int id = evt.getID();
@@ -371,8 +392,8 @@ public class SecondWindow extends javax.swing.JInternalFrame {
     private customization.MyButton jButton_EnviarRegistrosWhatsApp;
     private javax.swing.JCheckBox jCheckBox_Pagos;
     private javax.swing.JCheckBox jCheckBox_Vencer;
-    private javax.swing.JComboBox<String> jComboBox_EnviarMensagemWhatsapp;
     private javax.swing.JComboBox<String> jComboBox_PesquisarBoletoBancario;
+    private javax.swing.JComboBox<String> jComboBox_SelecioneNumeroTelefone;
     private com.toedter.calendar.JDateChooser jDateChooser_Data;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -432,7 +453,7 @@ public class SecondWindow extends javax.swing.JInternalFrame {
         int selectedRow = jTable_Tabela.getSelectedRow();
         if (selectedRow != -1) {
             // Obter o número de telefone selecionado no JComboBox
-            String numeroCliente = (String) jComboBox_EnviarMensagemWhatsapp.getSelectedItem();
+            String numeroCliente = (String) jComboBox_SelecioneNumeroTelefone.getSelectedItem();
 
             if (numeroCliente != null && !numeroCliente.isEmpty()) {
                 // Obter os dados do boleto selecionado na tabela
@@ -449,15 +470,15 @@ public class SecondWindow extends javax.swing.JInternalFrame {
 
                 // Formatar a mensagem a ser enviada
                 String mensagem = "Relatório da venda:\n\n"
-                        + "ID da venda: " + idBoleto + "\n"
-                        + "Produto: " + produto + "\n"
-                        + "Preço do Produto: " + preco + "\n"
-                        + "categoria: " + categoria + "\n"
                         + "Cedente: " + cedente + "\n"
+                        + "Número da venda: " + idBoleto + "\n"
+                        + "Produto: " + produto + "\n"
+                        + "categoria: " + categoria + "\n"
+                        + "Preço do Produto: " + preco + "\n"
                         //+ "Código de Barras: " + codigoBarras + "\n"
                         + "Data da venda: " + dataVencimento + "\n"
-                        + "Valor final a pagar: " + valorPagamento + "\n"
                         + "Forma Pagamento: " + formaPagamento + "\n"
+                        + "Valor a pagar: " + valorPagamento + "\n"
                         + "Situação: " + situacao + "\n";
 
                 // Verificar a forma de pagamento e formatar a mensagem adequadamente
@@ -482,20 +503,15 @@ public class SecondWindow extends javax.swing.JInternalFrame {
 
                 // Enviar a mensagem pelo WhatsApp
                 enviarMensagemWhatsApp(numeroCliente, mensagem);
-            } else {
-                JOptionPane.showMessageDialog(this, "Selecione um número de telefone válido no ComboBox.");
             }
-        } else {
-            JOptionPane.showMessageDialog(this, "Selecione um boleto na tabela.");
         }
     }
 
     private String calcularDataParcela(String dataVencimento, int parcela) {
         try {
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-            LocalDate ld = LocalDate.parse(dataVencimento, formatter);
-            //LocalDate ld = Util.formatDate(dataVencimento);
-            LocalDate dataParcela = ld;
+            LocalDate localDate = LocalDate.parse(dataVencimento, formatter);
+            //LocalDate localDate = Util.formatDate(dataVencimento, formatter);
+            LocalDate dataParcela = localDate;
 
             // Verifique a forma de pagamento e ajuste as datas de pagamento
             switch (formaPagamento) {
@@ -512,7 +528,8 @@ public class SecondWindow extends javax.swing.JInternalFrame {
             return dataParcela.format(formatter);
 
         } catch (Exception e) {
-            Logger.getLogger(SecondWindow.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(SecondWindow.class
+                    .getName()).log(Level.SEVERE, null, e);
             return "Erro ao calcular data da parcela";
         }
     }

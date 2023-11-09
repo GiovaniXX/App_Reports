@@ -5,6 +5,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class Util {
@@ -43,14 +44,6 @@ public class Util {
         return dateFormat.format(date);
     }
 
-    public static String formatDate(Date Data) {
-        if (Data == null) {
-            Data = new Date();
-        }
-        SimpleDateFormat formatoTexto = new SimpleDateFormat("dd/MM/yyyy");
-        return formatoTexto.format(Data);
-    }
-
     public static int objectToInt(Object obj) {
         int NumInt = Integer.parseInt(objectToString(obj));
         return NumInt;
@@ -76,7 +69,8 @@ public class Util {
         return str;
     }
 
-    public static Date objectToDate(Object obj) {
+    //---------------------------DATA FORMATADA------------------------------------//
+    public static Date objectToDate(Object obj, DateTimeFormatter formatter) {
         SimpleDateFormat formatoDelTexto = new SimpleDateFormat("dd-MM-yyyy");
         Date aux = null;
         try {
@@ -85,6 +79,20 @@ public class Util {
         }
         return aux;
     }
+
+    public static String formatDate(Date Data) {
+        if (Data == null) {
+            Data = new Date();
+        }
+        SimpleDateFormat formatoTexto = new SimpleDateFormat("dd/MM/yyyy");
+        return formatoTexto.format(Data);
+    }
+
+    public static String formatDateToDDMMYYYY(Date date) {
+        SimpleDateFormat formatoTexto = new SimpleDateFormat("dd/MM/yyyy");
+        return formatoTexto.format(date);
+    }
+    //----------------------------------------------------------------------------//
 
     public static String extractFormattedNumber(String barcode) {
         StringBuilder formattedNumber = new StringBuilder();
@@ -111,10 +119,5 @@ public class Util {
 
     public static String convertStringToString(String str) {
         return str;
-    }
-
-    public static String formatDateToDDMMYYYY(Date date) {
-        SimpleDateFormat formatoTexto = new SimpleDateFormat("dd/MM/yyyy");
-        return formatoTexto.format(date);
     }
 }
