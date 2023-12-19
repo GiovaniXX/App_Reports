@@ -126,14 +126,14 @@
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
-                              <Component id="Button_NovoCadastro" min="-2" pref="189" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="113" max="-2" attributes="0"/>
+                              <Component id="myButton_NovoCadastro" min="-2" pref="189" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jButton_CadastrarBoletoBancoDados" min="-2" max="-2" attributes="0"/>
+                              <Component id="myButton_CadastrarBoletoBancoDados" min="-2" pref="393" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jButton_LimparCampos" min="-2" max="-2" attributes="0"/>
+                              <Component id="myButton_LimparCampos" min="-2" pref="189" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jButton_ExcluirBoleto" min="-2" max="-2" attributes="0"/>
+                              <Component id="myButton_ExcluirBoleto" min="-2" pref="189" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -210,13 +210,13 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButton_CadastrarBoletoBancoDados" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton_ExcluirBoleto" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton_LimparCampos" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Button_NovoCadastro" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="myButton_NovoCadastro" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
+                  <Component id="myButton_CadastrarBoletoBancoDados" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
+                  <Component id="myButton_LimparCampos" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
+                  <Component id="myButton_ExcluirBoleto" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jScrollPane1" pref="587" max="32767" attributes="0"/>
+              <Component id="jScrollPane1" pref="562" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -262,31 +262,6 @@
       <Properties>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="jButton_CadastrarBoletoBancoDados">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Cadastrar Boleto Banco Dados"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_CadastrarBoletoBancoDadosActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="jButton_ExcluirBoleto">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Excluir Boleto"/>
-        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[189, 23]"/>
-        </Property>
-        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[189, 23]"/>
-        </Property>
-        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[189, 23]"/>
-        </Property>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_ExcluirBoletoActionPerformed"/>
-      </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
       <AuxValues>
@@ -424,31 +399,6 @@
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton_LimparCampos">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Limpar Campos"/>
-        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[189, 23]"/>
-        </Property>
-        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[189, 23]"/>
-        </Property>
-        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[189, 23]"/>
-        </Property>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_LimparCamposActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="Button_NovoCadastro">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Novo Cadastro"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Button_NovoCadastroActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabel8">
       <Properties>
         <Property name="text" type="java.lang.String" value="Produto.:"/>
@@ -512,6 +462,78 @@
       <Properties>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
+    </Component>
+    <Component class="customization.MyButton" name="myButton_NovoCadastro">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="7a" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Novo Cadastro"/>
+        <Property name="color" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="7a" type="rgb"/>
+        </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="18" style="1"/>
+        </Property>
+        <Property name="radius" type="int" value="50"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="myButton_NovoCadastroActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="customization.MyButton" name="myButton_CadastrarBoletoBancoDados">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="7a" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Cadastrar Boleto no Banco de dados"/>
+        <Property name="color" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="7a" type="rgb"/>
+        </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="18" style="1"/>
+        </Property>
+        <Property name="radius" type="int" value="50"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="myButton_CadastrarBoletoBancoDadosActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="customization.MyButton" name="myButton_LimparCampos">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="7a" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Limpar campos"/>
+        <Property name="color" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="7a" type="rgb"/>
+        </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="18" style="1"/>
+        </Property>
+        <Property name="radius" type="int" value="50"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="myButton_LimparCamposActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="customization.MyButton" name="myButton_ExcluirBoleto">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="7a" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Excluir Boleto"/>
+        <Property name="color" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="7a" type="rgb"/>
+        </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="18" style="1"/>
+        </Property>
+        <Property name="radius" type="int" value="50"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="myButton_ExcluirBoletoActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

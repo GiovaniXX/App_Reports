@@ -48,8 +48,6 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
         jTextField_CodigoBarras = new javax.swing.JTextField();
         jTextField_DataVencimento = new javax.swing.JTextField();
         jTextField_ValorPagamento = new javax.swing.JTextField();
-        jButton_CadastrarBoletoBancoDados = new javax.swing.JButton();
-        jButton_ExcluirBoleto = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable_Tabela = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
@@ -59,8 +57,6 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
         jComboBox_Empresas = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
         jTextField_Situacao = new javax.swing.JTextField();
-        jButton_LimparCampos = new javax.swing.JButton();
-        Button_NovoCadastro = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jTextField_Produto = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
@@ -71,6 +67,10 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
         jComboBox_Pagamento = new javax.swing.JComboBox<>();
         jLabel12 = new javax.swing.JLabel();
         jTextField_MarcaId = new javax.swing.JTextField();
+        myButton_NovoCadastro = new customization.MyButton();
+        myButton_CadastrarBoletoBancoDados = new customization.MyButton();
+        myButton_LimparCampos = new customization.MyButton();
+        myButton_ExcluirBoleto = new customization.MyButton();
 
         setClosable(true);
         setTitle("Cadastro de Boletos bancários");
@@ -92,23 +92,6 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
         jTextField_DataVencimento.setEnabled(false);
 
         jTextField_ValorPagamento.setEnabled(false);
-
-        jButton_CadastrarBoletoBancoDados.setText("Cadastrar Boleto Banco Dados");
-        jButton_CadastrarBoletoBancoDados.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_CadastrarBoletoBancoDadosActionPerformed(evt);
-            }
-        });
-
-        jButton_ExcluirBoleto.setText("Excluir Boleto");
-        jButton_ExcluirBoleto.setMaximumSize(new java.awt.Dimension(189, 23));
-        jButton_ExcluirBoleto.setMinimumSize(new java.awt.Dimension(189, 23));
-        jButton_ExcluirBoleto.setPreferredSize(new java.awt.Dimension(189, 23));
-        jButton_ExcluirBoleto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_ExcluirBoletoActionPerformed(evt);
-            }
-        });
 
         jTable_Tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -179,23 +162,6 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
 
         jTextField_Situacao.setEnabled(false);
 
-        jButton_LimparCampos.setText("Limpar Campos");
-        jButton_LimparCampos.setMaximumSize(new java.awt.Dimension(189, 23));
-        jButton_LimparCampos.setMinimumSize(new java.awt.Dimension(189, 23));
-        jButton_LimparCampos.setPreferredSize(new java.awt.Dimension(189, 23));
-        jButton_LimparCampos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_LimparCamposActionPerformed(evt);
-            }
-        });
-
-        Button_NovoCadastro.setText("Novo Cadastro");
-        Button_NovoCadastro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Button_NovoCadastroActionPerformed(evt);
-            }
-        });
-
         jLabel8.setText("Produto.:");
 
         jTextField_Produto.setEnabled(false);
@@ -216,6 +182,50 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
         jLabel12.setEnabled(false);
 
         jTextField_MarcaId.setEnabled(false);
+
+        myButton_NovoCadastro.setBackground(new java.awt.Color(122, 0, 0));
+        myButton_NovoCadastro.setText("Novo Cadastro");
+        myButton_NovoCadastro.setColor(new java.awt.Color(122, 0, 0));
+        myButton_NovoCadastro.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        myButton_NovoCadastro.setRadius(50);
+        myButton_NovoCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                myButton_NovoCadastroActionPerformed(evt);
+            }
+        });
+
+        myButton_CadastrarBoletoBancoDados.setBackground(new java.awt.Color(122, 0, 0));
+        myButton_CadastrarBoletoBancoDados.setText("Cadastrar Boleto no Banco de dados");
+        myButton_CadastrarBoletoBancoDados.setColor(new java.awt.Color(122, 0, 0));
+        myButton_CadastrarBoletoBancoDados.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        myButton_CadastrarBoletoBancoDados.setRadius(50);
+        myButton_CadastrarBoletoBancoDados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                myButton_CadastrarBoletoBancoDadosActionPerformed(evt);
+            }
+        });
+
+        myButton_LimparCampos.setBackground(new java.awt.Color(122, 0, 0));
+        myButton_LimparCampos.setText("Limpar campos");
+        myButton_LimparCampos.setColor(new java.awt.Color(122, 0, 0));
+        myButton_LimparCampos.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        myButton_LimparCampos.setRadius(50);
+        myButton_LimparCampos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                myButton_LimparCamposActionPerformed(evt);
+            }
+        });
+
+        myButton_ExcluirBoleto.setBackground(new java.awt.Color(122, 0, 0));
+        myButton_ExcluirBoleto.setText("Excluir Boleto");
+        myButton_ExcluirBoleto.setColor(new java.awt.Color(122, 0, 0));
+        myButton_ExcluirBoleto.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        myButton_ExcluirBoleto.setRadius(50);
+        myButton_ExcluirBoleto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                myButton_ExcluirBoletoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -294,14 +304,14 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
                                             .addComponent(jTextField_Situacao, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGap(2, 2, 2)))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(115, 115, 115)
-                                .addComponent(Button_NovoCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(113, 113, 113)
+                                .addComponent(myButton_NovoCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton_CadastrarBoletoBancoDados)
+                                .addComponent(myButton_CadastrarBoletoBancoDados, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton_LimparCampos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(myButton_LimparCampos, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton_ExcluirBoleto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(myButton_ExcluirBoleto, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -360,26 +370,61 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
                     .addComponent(jLabel12))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton_CadastrarBoletoBancoDados)
-                    .addComponent(jButton_ExcluirBoleto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton_LimparCampos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Button_NovoCadastro))
+                    .addComponent(myButton_NovoCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(myButton_CadastrarBoletoBancoDados, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(myButton_LimparCampos, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(myButton_ExcluirBoleto, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 587, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 562, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton_CadastrarBoletoBancoDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_CadastrarBoletoBancoDadosActionPerformed
+    private void jComboBox_EmpresasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_EmpresasActionPerformed
+        String empresaSelecionada = (String) jComboBox_Empresas.getSelectedItem();
+        carregarBoletosNaTabela(empresaSelecionada);
+
+        int id = evt.getID();
+        System.out.println("ID do evento: " + id);
+    }//GEN-LAST:event_jComboBox_EmpresasActionPerformed
+
+    private void myButton_NovoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myButton_NovoCadastroActionPerformed
+        jTextField_Produto.setEnabled(true);
+        jTextField_Preco.setEnabled(true);
+        jTextField_Categoria.setEnabled(true);
+        jTextField_Cedente.setEnabled(true);
+        jTextField_CodigoBarras.setEnabled(true);
+        jTextField_DataVencimento.setEnabled(true);
+        jComboBox_Pagamento.setEnabled(true);
+        jTextField_ValorPagamento.setEnabled(true);
+        jTextField_Situacao.setEnabled(true);
+
+        // Limpar os campos ou definir valores padrão
+        jTextField_Produto.setText("");
+        jTextField_Preco.setText("");
+        jTextField_Categoria.setText("");
+        jTextField_Cedente.setText("");
+        jTextField_CodigoBarras.setText("");
+        jTextField_DataVencimento.setText("");
+        jComboBox_Pagamento.setSelectedItem(0);
+        jTextField_ValorPagamento.setText("");
+        jTextField_Situacao.setText("");
+
+        int id = evt.getID();
+        System.out.println("ID do evento: " + id);
+        System.out.println("Evento executado com sucesso.!");
+    }//GEN-LAST:event_myButton_NovoCadastroActionPerformed
+
+    private void myButton_CadastrarBoletoBancoDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myButton_CadastrarBoletoBancoDadosActionPerformed
         try {
             String produto = jTextField_Produto.getText();
             float preco = Float.parseFloat(jTextField_Preco.getText());
             String categoria = jTextField_Categoria.getText();
             String cedente = jTextField_Cedente.getText();
             String codigoBarras = convertStringToString(Util.extractFormattedNumber(jTextField_CodigoBarras.getText()));
-            Date dataVencimento = Util.convertStringToDate(jTextField_DataVencimento.getText());           
+            Date dataVencimento = Util.convertStringToDate(jTextField_DataVencimento.getText());
             float valorPagamento = (float) Util.parseFloatWithComma(jTextField_ValorPagamento.getText());
             String formaPagamento = Util.objectToString(jComboBox_Pagamento.getSelectedItem());
             String situacao = jTextField_Situacao.getText();
@@ -437,9 +482,23 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
 
         int id = evt.getID();
         System.out.println("ID do evento: " + id);
-    }//GEN-LAST:event_jButton_CadastrarBoletoBancoDadosActionPerformed
+    }//GEN-LAST:event_myButton_CadastrarBoletoBancoDadosActionPerformed
 
-    private void jButton_ExcluirBoletoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ExcluirBoletoActionPerformed
+    private void myButton_LimparCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myButton_LimparCamposActionPerformed
+        jTextField_Produto.setText("");
+        jTextField_Preco.setText("");
+        jTextField_Categoria.setText("");
+        jTextField_Cedente.setText("");
+        jTextField_CodigoBarras.setText("");
+        jTextField_DataVencimento.setText("");
+        jTextField_ValorPagamento.setText("");
+        jTextField_Situacao.setText("");
+
+        int id = evt.getID();
+        System.out.println("ID do evento: " + id);
+    }//GEN-LAST:event_myButton_LimparCamposActionPerformed
+
+    private void myButton_ExcluirBoletoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myButton_ExcluirBoletoActionPerformed
         try {
             int selectedRow = jTable_Tabela.getSelectedRow();
             if (selectedRow == -1) {
@@ -491,62 +550,9 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
 
         int id = evt.getID();
         System.out.println("ID do evento: " + id);
-    }//GEN-LAST:event_jButton_ExcluirBoletoActionPerformed
-
-    private void jButton_LimparCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_LimparCamposActionPerformed
-        jTextField_Produto.setText("");
-        jTextField_Preco.setText("");
-        jTextField_Categoria.setText("");
-        jTextField_Cedente.setText("");
-        jTextField_CodigoBarras.setText("");
-        jTextField_DataVencimento.setText("");
-        jTextField_ValorPagamento.setText("");
-        jTextField_Situacao.setText("");
-
-        int id = evt.getID();
-        System.out.println("ID do evento: " + id);
-    }//GEN-LAST:event_jButton_LimparCamposActionPerformed
-
-    private void jComboBox_EmpresasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_EmpresasActionPerformed
-        String empresaSelecionada = (String) jComboBox_Empresas.getSelectedItem();
-        carregarBoletosNaTabela(empresaSelecionada);
-
-        int id = evt.getID();
-        System.out.println("ID do evento: " + id);
-    }//GEN-LAST:event_jComboBox_EmpresasActionPerformed
-
-    private void Button_NovoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_NovoCadastroActionPerformed
-        jTextField_Produto.setEnabled(true);
-        jTextField_Preco.setEnabled(true);
-        jTextField_Categoria.setEnabled(true);
-        jTextField_Cedente.setEnabled(true);
-        jTextField_CodigoBarras.setEnabled(true);
-        jTextField_DataVencimento.setEnabled(true);
-        jComboBox_Pagamento.setEnabled(true);
-        jTextField_ValorPagamento.setEnabled(true);
-        jTextField_Situacao.setEnabled(true);
-
-        // Limpar os campos ou definir valores padrão
-        jTextField_Produto.setText("");
-        jTextField_Preco.setText("");
-        jTextField_Categoria.setText("");
-        jTextField_Cedente.setText("");
-        jTextField_CodigoBarras.setText("");
-        jTextField_DataVencimento.setText("");
-        jComboBox_Pagamento.setSelectedItem(0);
-        jTextField_ValorPagamento.setText("");
-        jTextField_Situacao.setText("");
-
-        int id = evt.getID();
-        System.out.println("ID do evento: " + id);
-        System.out.println("Evento executado com sucesso.!");
-    }//GEN-LAST:event_Button_NovoCadastroActionPerformed
+    }//GEN-LAST:event_myButton_ExcluirBoletoActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Button_NovoCadastro;
-    private javax.swing.JButton jButton_CadastrarBoletoBancoDados;
-    private javax.swing.JButton jButton_ExcluirBoleto;
-    private javax.swing.JButton jButton_LimparCampos;
     private javax.swing.JComboBox<String> jComboBox_Empresas;
     private javax.swing.JComboBox<String> jComboBox_Pagamento;
     private javax.swing.JLabel jLabel1;
@@ -574,6 +580,10 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextField_Produto;
     private javax.swing.JTextField jTextField_Situacao;
     private javax.swing.JTextField jTextField_ValorPagamento;
+    private customization.MyButton myButton_CadastrarBoletoBancoDados;
+    private customization.MyButton myButton_ExcluirBoleto;
+    private customization.MyButton myButton_LimparCampos;
+    private customization.MyButton myButton_NovoCadastro;
     // End of variables declaration//GEN-END:variables
 
     private void carregarBoletosNaTabela(String empresaSelecionada) {

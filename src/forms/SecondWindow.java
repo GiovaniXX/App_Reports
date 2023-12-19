@@ -16,10 +16,15 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.Timer;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+//-------------Messages Alerts--------------//
+import javax.swing.JOptionPane;
+import raven.alerts.MessageAlerts;
+import raven.popup.GlassPanePopup;
+import raven.popup.component.PopupCallbackAction;
+import raven.popup.component.PopupController;
 
 public class SecondWindow extends javax.swing.JInternalFrame {
 
@@ -43,6 +48,9 @@ public class SecondWindow extends javax.swing.JInternalFrame {
             }
         });
         preencherComboBoxTelefonesClientes();
+        formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        //formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        //formatter = Util.formatDate(dataVencimento, formatter);
     }
 
     private void preencherComboBoxTelefonesClientes() {
@@ -54,7 +62,6 @@ public class SecondWindow extends javax.swing.JInternalFrame {
 
         // Adicione a mensagem padrão
         jComboBox_SelecioneNumeroTelefone.addItem("Selecione um número de telefone para o envio da mensagem");
-
         // Adicionar os telefones dos clientes ao JComboBox
         for (String telefone : telefones) {
             jComboBox_SelecioneNumeroTelefone.addItem(telefone);
@@ -364,24 +371,49 @@ public class SecondWindow extends javax.swing.JInternalFrame {
     private void jButton_EnviarRegistrosWhatsAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_EnviarRegistrosWhatsAppActionPerformed
         // Verifica se foi selecionada uma empresa
         if (((String) jComboBox_PesquisarBoletoBancario.getSelectedItem()).isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Por favor, selecione uma empresa.", "Aviso", JOptionPane.WARNING_MESSAGE);
+            MessageAlerts.getInstance().showMessage("Data Saving Failure", "Aviso! Por favor, selecione uma empresa.", MessageAlerts.MessageType.ERROR, MessageAlerts.OK_OPTION, new PopupCallbackAction() {
+                @Override
+                public void action(PopupController pc, int i) {
+                    if (i == MessageAlerts.OK_OPTION) {
+                        System.out.println("Click ok");
+                    }
+                }
+            });
+            //JOptionPane.showMessageDialog(this, "Por favor, selecione uma empresa.", "Aviso", JOptionPane.WARNING_MESSAGE);
             return;  // Sai do método se a empresa não estiver selecionada
         }
 
         // Verifica se foi selecionado um número de telefone
         if (((String) jComboBox_SelecioneNumeroTelefone.getSelectedItem()).isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Por favor, selecione um número de telefone.", "Aviso", JOptionPane.WARNING_MESSAGE);
+            MessageAlerts.getInstance().showMessage("Data Saving Failure", "Aviso! Por favor, selecione um número de telefone.", MessageAlerts.MessageType.ERROR, MessageAlerts.OK_OPTION, new PopupCallbackAction() {
+                @Override
+                public void action(PopupController pc, int i) {
+                    if (i == MessageAlerts.OK_OPTION) {
+                        System.out.println("Click ok");
+                    }
+                }
+            });
+            //JOptionPane.showMessageDialog(this, "Por favor, selecione um número de telefone.", "Aviso", JOptionPane.WARNING_MESSAGE);
             return;  // Sai do método se o número de telefone não estiver selecionado
         }
 
         // Verifica se foi selecionado um boleto na tabela
         int selectedRow = jTable_Tabela.getSelectedRow();
         if (selectedRow == -1) {
-            JOptionPane.showMessageDialog(this, "Selecione um boleto na tabela.", "Aviso", JOptionPane.WARNING_MESSAGE);
+            MessageAlerts.getInstance().showMessage("Data Saving Failure", "Aviso! Selecione um boleto na tabela.", MessageAlerts.MessageType.ERROR, MessageAlerts.OK_OPTION, new PopupCallbackAction() {
+                @Override
+                public void action(PopupController pc, int i) {
+                    if (i == MessageAlerts.OK_OPTION) {
+                        System.out.println("Click ok");
+                    }
+                }
+            });
+            //JOptionPane.showMessageDialog(this, "Selecione um boleto na tabela.", "Aviso", JOptionPane.WARNING_MESSAGE);
             return;  // Sai do método se nenhum boleto estiver selecionado
         }
 
         // Chama o método enviarBoletoWhatsApp() se todas as verificações passarem
+        //calcularDataParcela();
         enviarBoletoWhatsApp();
 
         int id = evt.getID();
@@ -465,7 +497,8 @@ public class SecondWindow extends javax.swing.JInternalFrame {
                 String codigoBarras = jTable_Tabela.getValueAt(selectedRow, 5).toString();
                 String dataVencimento = jTable_Tabela.getValueAt(selectedRow, 6).toString();
                 String valorPagamento = jTable_Tabela.getValueAt(selectedRow, 7).toString();
-                String formaPagamento = Util.objectToString(jTable_Tabela.getValueAt(selectedRow, 8));
+                //String formaPagamento = Util.objectToString(jTable_Tabela.getValueAt(selectedRow, 8));
+                formaPagamento = Util.objectToString(jTable_Tabela.getValueAt(selectedRow, 8));
                 String situacao = jTable_Tabela.getValueAt(selectedRow, 9).toString();
 
                 // Formatar a mensagem a ser enviada
