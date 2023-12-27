@@ -19,10 +19,11 @@ import javax.swing.JLabel;
 import javax.swing.Timer;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-//-------------Messages Alerts--------------//
+//------Messages Alerts imports--------------//
 import javax.swing.JOptionPane;
 import raven.alerts.MessageAlerts;
 import raven.popup.GlassPanePopup;
+import raven.popup.GlassPopup;
 import raven.popup.component.PopupCallbackAction;
 import raven.popup.component.PopupController;
 
@@ -369,46 +370,48 @@ public class SecondWindow extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jRadioButton_CodigoBarrasActionPerformed
 
     private void jButton_EnviarRegistrosWhatsAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_EnviarRegistrosWhatsAppActionPerformed
-        // Verifica se foi selecionada uma empresa
-        if (((String) jComboBox_PesquisarBoletoBancario.getSelectedItem()).isEmpty()) {
-            MessageAlerts.getInstance().showMessage("Data Saving Failure", "Aviso! Por favor, selecione uma empresa.", MessageAlerts.MessageType.ERROR, MessageAlerts.OK_OPTION, new PopupCallbackAction() {
-                @Override
-                public void action(PopupController pc, int i) {
-                    if (i == MessageAlerts.OK_OPTION) {
-                        System.out.println("Click ok");
-                    }
-                }
-            });
-            //JOptionPane.showMessageDialog(this, "Por favor, selecione uma empresa.", "Aviso", JOptionPane.WARNING_MESSAGE);
+        // Verifica se a opção padrão "Selecione uma empresa para a pesquisa do boleto" foi selecionada
+        int selectedEmpresaIndex = jComboBox_PesquisarBoletoBancario.getSelectedIndex();
+        if (selectedEmpresaIndex == 0) {
+//            MessageAlerts.getInstance().showMessage("Error in program flow", "Aviso! Selecione uma empresa.", MessageAlerts.MessageType.ERROR, MessageAlerts.OK_OPTION, new PopupCallbackAction() {
+//                @Override
+//                public void action(PopupController pc, int i) {
+//                    if (i == MessageAlerts.OK_OPTION) {
+//                        System.out.println("Click ok");
+//                    }
+//                }
+//            });
+            JOptionPane.showMessageDialog(this, "Por favor, selecione uma empresa.", "Aviso", JOptionPane.WARNING_MESSAGE);
             return;  // Sai do método se a empresa não estiver selecionada
         }
 
         // Verifica se foi selecionado um número de telefone
-        if (((String) jComboBox_SelecioneNumeroTelefone.getSelectedItem()).isEmpty()) {
-            MessageAlerts.getInstance().showMessage("Data Saving Failure", "Aviso! Por favor, selecione um número de telefone.", MessageAlerts.MessageType.ERROR, MessageAlerts.OK_OPTION, new PopupCallbackAction() {
-                @Override
-                public void action(PopupController pc, int i) {
-                    if (i == MessageAlerts.OK_OPTION) {
-                        System.out.println("Click ok");
-                    }
-                }
-            });
-            //JOptionPane.showMessageDialog(this, "Por favor, selecione um número de telefone.", "Aviso", JOptionPane.WARNING_MESSAGE);
+        int selectedTelefoneIndex = jComboBox_SelecioneNumeroTelefone.getSelectedIndex();
+        if (selectedTelefoneIndex == 0) {
+//            MessageAlerts.getInstance().showMessage("Error in program flow", "Aviso! Selecione um número de telefone.", MessageAlerts.MessageType.ERROR, MessageAlerts.OK_OPTION, new PopupCallbackAction() {
+//                @Override
+//                public void action(PopupController pc, int i) {
+//                    if (i == MessageAlerts.OK_OPTION) {
+//                        System.out.println("Click ok");
+//                    }
+//                }
+//            });
+            JOptionPane.showMessageDialog(this, "Por favor, selecione um número de telefone.", "Aviso", JOptionPane.WARNING_MESSAGE);
             return;  // Sai do método se o número de telefone não estiver selecionado
         }
 
         // Verifica se foi selecionado um boleto na tabela
         int selectedRow = jTable_Tabela.getSelectedRow();
         if (selectedRow == -1) {
-            MessageAlerts.getInstance().showMessage("Data Saving Failure", "Aviso! Selecione um boleto na tabela.", MessageAlerts.MessageType.ERROR, MessageAlerts.OK_OPTION, new PopupCallbackAction() {
-                @Override
-                public void action(PopupController pc, int i) {
-                    if (i == MessageAlerts.OK_OPTION) {
-                        System.out.println("Click ok");
-                    }
-                }
-            });
-            //JOptionPane.showMessageDialog(this, "Selecione um boleto na tabela.", "Aviso", JOptionPane.WARNING_MESSAGE);
+//            MessageAlerts.getInstance().showMessage("Error in program flow", "Aviso! Selecione um boleto na tabela.", MessageAlerts.MessageType.ERROR, MessageAlerts.OK_OPTION, new PopupCallbackAction() {
+//                @Override
+//                public void action(PopupController pc, int i) {
+//                    if (i == MessageAlerts.OK_OPTION) {
+//                        System.out.println("Click ok");
+//                    }
+//                }
+//            });
+            JOptionPane.showMessageDialog(this, "Por favor, Selecione um boleto na tabela.", "Aviso", JOptionPane.WARNING_MESSAGE);
             return;  // Sai do método se nenhum boleto estiver selecionado
         }
 
