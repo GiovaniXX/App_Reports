@@ -32,7 +32,7 @@ public class SecondWindow extends javax.swing.JInternalFrame {
     public Connection cnn;
     private final Timer timer;
     private String formaPagamento;
-    private DateTimeFormatter formatter;
+    private final DateTimeFormatter formatter;
 
     public SecondWindow() {
         initComponents();
@@ -500,7 +500,7 @@ public class SecondWindow extends javax.swing.JInternalFrame {
                 String codigoBarras = jTable_Tabela.getValueAt(selectedRow, 5).toString();
                 String dataVencimento = jTable_Tabela.getValueAt(selectedRow, 6).toString();
                 String valorPagamento = jTable_Tabela.getValueAt(selectedRow, 7).toString();
-                //String formaPagamento = Util.objectToString(jTable_Tabela.getValueAt(selectedRow, 8));
+                String formaPagamento = Util.objectToString(jTable_Tabela.getValueAt(selectedRow, 8));
                 formaPagamento = Util.objectToString(jTable_Tabela.getValueAt(selectedRow, 8));
                 String situacao = jTable_Tabela.getValueAt(selectedRow, 9).toString();
 
@@ -545,8 +545,8 @@ public class SecondWindow extends javax.swing.JInternalFrame {
 
     private String calcularDataParcela(String dataVencimento, int parcela) {
         try {
-            LocalDate localDate = LocalDate.parse(dataVencimento, formatter);
-            //LocalDate localDate = Util.formatDate(dataVencimento, formatter);
+            //LocalDate localDate = LocalDate.parse(dataVencimento, formatter);
+            LocalDate localDate = Util.dataFormatada(dataVencimento);
             LocalDate dataParcela = localDate;
 
             // Verifique a forma de pagamento e ajuste as datas de pagamento

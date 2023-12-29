@@ -1,11 +1,8 @@
 package app.reports;
 
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class Util {
@@ -25,23 +22,6 @@ public class Util {
         } catch (NumberFormatException e) {
             return 0.0;
         }
-    }
-
-    public static LocalDate convertStringToLocalDate(String dateString) throws ParseException {
-        Date date = convertStringToDate(dateString);
-        LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-        return localDate;
-    }
-
-    public static Date convertStringToDate(String dateString) throws ParseException {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        Date date = simpleDateFormat.parse(dateString);
-        return date;
-    }
-
-    public static String convertDateToString(Date date) {
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        return dateFormat.format(date);
     }
 
     public static int objectToInt(Object obj) {
@@ -69,31 +49,6 @@ public class Util {
         return str;
     }
 
-    //---------------------------DATA FORMATADA------------------------------------//
-    public static Date objectToDate(Object obj, DateTimeFormatter formatter) {
-        SimpleDateFormat formatoDelTexto = new SimpleDateFormat("dd-MM-yyyy");
-        Date aux = null;
-        try {
-            aux = formatoDelTexto.parse(objectToString(obj));
-        } catch (ParseException ex) {
-        }
-        return aux;
-    }
-
-    public static String formatDate(Date Data) {
-        if (Data == null) {
-            Data = new Date();
-        }
-        SimpleDateFormat formatoTexto = new SimpleDateFormat("dd/MM/yyyy");
-        return formatoTexto.format(Data);
-    }
-
-    public static String formatDateToDDMMYYYY(Date date) {
-        SimpleDateFormat formatoTexto = new SimpleDateFormat("dd/MM/yyyy");
-        return formatoTexto.format(date);
-    }
-    //----------------------------------------------------------------------------//
-
     public static String extractFormattedNumber(String barcode) {
         StringBuilder formattedNumber = new StringBuilder();
 
@@ -120,4 +75,25 @@ public class Util {
     public static String convertStringToString(String str) {
         return str;
     }
+
+    //-------------------------------------------------------------------------------//
+    //->-------------------------------MÉTODOS DATAS--------------------------------//
+    //-----------------------------------------------------------------------------//   
+    public String DataFormatada() {
+        Date dataAtual = new Date();
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        return formato.format(dataAtual);
+    }
+
+    public static LocalDate dataFormatada(String dataVencimento) throws ParseException {
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        Date data = formato.parse(dataVencimento);
+        return data.toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate();
+    }
+
+    public static Date convertStringToDate(String text) throws ParseException {
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        return formato.parse(text);
+    }
+    //->------------------------FIM MÉTODOS DATAS-----------------------------------//
 }
