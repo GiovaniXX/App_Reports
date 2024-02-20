@@ -92,7 +92,7 @@ public class Util {
     }
 
     public static Date convertStringToDate(String text) throws ParseException {
-        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat formato = new SimpleDateFormat("yyyy/MM/dd");
         return formato.parse(text);
     }
     //->------------------------FIM MÉTODOS DATAS-----------------------------------//
