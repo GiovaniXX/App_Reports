@@ -49,8 +49,8 @@ public class SecondWindow extends javax.swing.JInternalFrame {
             }
         });
         preencherComboBoxTelefonesClientes();
-        formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        //formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        //formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         //formatter = Util.formatDate(dataVencimento, formatter);
     }
 
@@ -545,7 +545,8 @@ public class SecondWindow extends javax.swing.JInternalFrame {
 
     private String calcularDataParcela(String dataVencimento, int parcela) {
         try {
-            formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+            //formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
             LocalDate localDate = LocalDate.parse(dataVencimento, formatter);
             //LocalDate localDate = Util.dataFormatada(dataVencimento);
             LocalDate dataParcela = localDate;

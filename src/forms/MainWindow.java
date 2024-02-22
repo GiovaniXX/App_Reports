@@ -16,7 +16,7 @@ public final class MainWindow extends javax.swing.JFrame {
     }
 
     public void exibirmensagemConexao() {
-        jLabel_StatusConexao.setText("Connectado ao banco de dados App reports..!");
+        jLabel_StatusConexao.setText("Connectado ao banco de dados MySQL Workbench App reports..!");
     }
 
     @SuppressWarnings("unchecked")
