@@ -67,10 +67,10 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
         jComboBox_Pagamento = new javax.swing.JComboBox<>();
         jLabel12 = new javax.swing.JLabel();
         jTextField_MarcaId = new javax.swing.JTextField();
-        myButton_NovoCadastro = new customization.MyButton();
-        myButton_CadastrarBoletoBancoDados = new customization.MyButton();
-        myButton_LimparCampos = new customization.MyButton();
-        myButton_ExcluirBoleto = new customization.MyButton();
+        myButton_NovoCadastro = new customization.Button();
+        myButton_CadastrarBoletoBancoDados = new customization.Button();
+        myButton_LimparCampos = new customization.Button();
+        myButton_ExcluirBoleto = new customization.Button();
 
         setClosable(true);
         setTitle("Cadastro de Boletos bancários");
@@ -183,44 +183,40 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
 
         jTextField_MarcaId.setEnabled(false);
 
-        myButton_NovoCadastro.setBackground(new java.awt.Color(122, 0, 0));
         myButton_NovoCadastro.setText("Novo Cadastro");
-        myButton_NovoCadastro.setColor(new java.awt.Color(122, 0, 0));
+        myButton_NovoCadastro.setColor(new java.awt.Color(204, 0, 0));
         myButton_NovoCadastro.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        myButton_NovoCadastro.setRadius(50);
+        myButton_NovoCadastro.setRadius(45);
         myButton_NovoCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 myButton_NovoCadastroActionPerformed(evt);
             }
         });
 
-        myButton_CadastrarBoletoBancoDados.setBackground(new java.awt.Color(122, 0, 0));
-        myButton_CadastrarBoletoBancoDados.setText("Cadastrar Boleto no Banco de dados");
-        myButton_CadastrarBoletoBancoDados.setColor(new java.awt.Color(122, 0, 0));
+        myButton_CadastrarBoletoBancoDados.setText("Cadastrar Boleto Banco de Dados");
+        myButton_CadastrarBoletoBancoDados.setColor(new java.awt.Color(204, 0, 0));
         myButton_CadastrarBoletoBancoDados.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        myButton_CadastrarBoletoBancoDados.setRadius(50);
+        myButton_CadastrarBoletoBancoDados.setRadius(45);
         myButton_CadastrarBoletoBancoDados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 myButton_CadastrarBoletoBancoDadosActionPerformed(evt);
             }
         });
 
-        myButton_LimparCampos.setBackground(new java.awt.Color(122, 0, 0));
-        myButton_LimparCampos.setText("Limpar campos");
-        myButton_LimparCampos.setColor(new java.awt.Color(122, 0, 0));
+        myButton_LimparCampos.setText("Limpar Campos");
+        myButton_LimparCampos.setColor(new java.awt.Color(204, 0, 0));
         myButton_LimparCampos.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        myButton_LimparCampos.setRadius(50);
+        myButton_LimparCampos.setRadius(45);
         myButton_LimparCampos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 myButton_LimparCamposActionPerformed(evt);
             }
         });
 
-        myButton_ExcluirBoleto.setBackground(new java.awt.Color(122, 0, 0));
         myButton_ExcluirBoleto.setText("Excluir Boleto");
-        myButton_ExcluirBoleto.setColor(new java.awt.Color(122, 0, 0));
+        myButton_ExcluirBoleto.setColor(new java.awt.Color(204, 0, 0));
         myButton_ExcluirBoleto.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        myButton_ExcluirBoleto.setRadius(50);
+        myButton_ExcluirBoleto.setRadius(45);
         myButton_ExcluirBoleto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 myButton_ExcluirBoletoActionPerformed(evt);
@@ -234,7 +230,6 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1896, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -243,6 +238,23 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(jLabel_DataHoraAtualSistema, javax.swing.GroupLayout.DEFAULT_SIZE, 404, Short.MAX_VALUE))
                                 .addComponent(jSeparator1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(63, 63, 63)
+                                .addComponent(jLabel12)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextField_MarcaId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(myButton_NovoCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(myButton_CadastrarBoletoBancoDados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(myButton_LimparCampos, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(myButton_ExcluirBoleto, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -292,27 +304,12 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(jComboBox_Pagamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(12, 12, 12)
-                                            .addComponent(jLabel12)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(jTextField_MarcaId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabel7)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(jTextField_Situacao, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGap(2, 2, 2)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(113, 113, 113)
-                                .addComponent(myButton_NovoCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(myButton_CadastrarBoletoBancoDados, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(myButton_LimparCampos, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(myButton_ExcluirBoleto, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                    .addComponent(jLabel7)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jTextField_Situacao, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(2, 2, 2))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1896, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -364,18 +361,18 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField_Situacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField_MarcaId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(myButton_NovoCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(myButton_CadastrarBoletoBancoDados, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(myButton_LimparCampos, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(myButton_ExcluirBoleto, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 562, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(myButton_ExcluirBoleto, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+                    .addComponent(myButton_LimparCampos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(myButton_CadastrarBoletoBancoDados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(myButton_NovoCadastro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(32, 32, 32)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 546, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -580,10 +577,10 @@ public class ThirdWindow extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextField_Produto;
     private javax.swing.JTextField jTextField_Situacao;
     private javax.swing.JTextField jTextField_ValorPagamento;
-    private customization.MyButton myButton_CadastrarBoletoBancoDados;
-    private customization.MyButton myButton_ExcluirBoleto;
-    private customization.MyButton myButton_LimparCampos;
-    private customization.MyButton myButton_NovoCadastro;
+    private customization.Button myButton_CadastrarBoletoBancoDados;
+    private customization.Button myButton_ExcluirBoleto;
+    private customization.Button myButton_LimparCampos;
+    private customization.Button myButton_NovoCadastro;
     // End of variables declaration//GEN-END:variables
 
     private void carregarBoletosNaTabela(String empresaSelecionada) {

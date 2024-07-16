@@ -104,7 +104,7 @@ public class SecondWindow extends javax.swing.JInternalFrame {
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
         jComboBox_SelecioneNumeroTelefone = new javax.swing.JComboBox<>();
-        jButton_EnviarRegistrosWhatsApp = new customization.MyButton();
+        jButton_EnviarRegistrosWhatsApp = new customization.Button();
 
         setClosable(true);
         setResizable(true);
@@ -205,11 +205,10 @@ public class SecondWindow extends javax.swing.JInternalFrame {
 
         jComboBox_SelecioneNumeroTelefone.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione um telefone para o envio da mensagem", " " }));
 
-        jButton_EnviarRegistrosWhatsApp.setBackground(new java.awt.Color(122, 0, 0));
-        jButton_EnviarRegistrosWhatsApp.setText("Enviar Registro WhatsApp");
-        jButton_EnviarRegistrosWhatsApp.setColor(new java.awt.Color(122, 0, 0));
+        jButton_EnviarRegistrosWhatsApp.setText("Enviar Registros pelo WhatsApp");
+        jButton_EnviarRegistrosWhatsApp.setColor(new java.awt.Color(204, 0, 0));
         jButton_EnviarRegistrosWhatsApp.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton_EnviarRegistrosWhatsApp.setRadius(50);
+        jButton_EnviarRegistrosWhatsApp.setRadius(45);
         jButton_EnviarRegistrosWhatsApp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_EnviarRegistrosWhatsAppActionPerformed(evt);
@@ -260,8 +259,8 @@ public class SecondWindow extends javax.swing.JInternalFrame {
                                     .addComponent(jLabel_DataHoraAtualSistema, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jButton_EnviarRegistrosWhatsApp, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jComboBox_SelecioneNumeroTelefone, javax.swing.GroupLayout.Alignment.TRAILING, 0, 408, Short.MAX_VALUE)))
+                                .addComponent(jButton_EnviarRegistrosWhatsApp, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 409, Short.MAX_VALUE)
+                                .addComponent(jComboBox_SelecioneNumeroTelefone, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -424,7 +423,7 @@ public class SecondWindow extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton_EnviarRegistrosWhatsAppActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private customization.MyButton jButton_EnviarRegistrosWhatsApp;
+    private customization.Button jButton_EnviarRegistrosWhatsApp;
     private javax.swing.JCheckBox jCheckBox_Pagos;
     private javax.swing.JCheckBox jCheckBox_Vencer;
     private javax.swing.JComboBox<String> jComboBox_PesquisarBoletoBancario;

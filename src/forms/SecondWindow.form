@@ -84,8 +84,8 @@
                               <Component id="jSeparator4" alignment="0" min="-2" pref="518" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jButton_EnviarRegistrosWhatsApp" alignment="1" max="32767" attributes="0"/>
-                              <Component id="jComboBox_SelecioneNumeroTelefone" alignment="1" pref="408" max="32767" attributes="0"/>
+                              <Component id="jButton_EnviarRegistrosWhatsApp" alignment="1" pref="409" max="32767" attributes="0"/>
+                              <Component id="jComboBox_SelecioneNumeroTelefone" alignment="1" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -330,19 +330,16 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="customization.MyButton" name="jButton_EnviarRegistrosWhatsApp">
+    <Component class="customization.Button" name="jButton_EnviarRegistrosWhatsApp">
       <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="0" red="7a" type="rgb"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Enviar Registro WhatsApp"/>
+        <Property name="text" type="java.lang.String" value="Enviar Registros pelo WhatsApp"/>
         <Property name="color" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="0" red="7a" type="rgb"/>
+          <Color blue="0" green="0" red="cc" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="1"/>
         </Property>
-        <Property name="radius" type="int" value="50"/>
+        <Property name="radius" type="int" value="45"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_EnviarRegistrosWhatsAppActionPerformed"/>
