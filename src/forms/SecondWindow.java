@@ -372,14 +372,14 @@ public class SecondWindow extends javax.swing.JInternalFrame {
         // Verifica se a opção padrão "Selecione uma empresa para a pesquisa do boleto" foi selecionada
         int selectedEmpresaIndex = jComboBox_PesquisarBoletoBancario.getSelectedIndex();
         if (selectedEmpresaIndex == 0) {
-//            MessageAlerts.getInstance().showMessage("Error in program flow", "Aviso! Selecione uma empresa.", MessageAlerts.MessageType.ERROR, MessageAlerts.OK_OPTION, new PopupCallbackAction() {
-//                @Override
-//                public void action(PopupController pc, int i) {
-//                    if (i == MessageAlerts.OK_OPTION) {
-//                        System.out.println("Click ok");
-//                    }
-//                }
-//            });
+            MessageAlerts.getInstance().showMessage("Error in program flow", "Aviso! Selecione uma empresa.", MessageAlerts.MessageType.ERROR, MessageAlerts.OK_OPTION, new PopupCallbackAction() {
+                @Override
+                public void action(PopupController pc, int i) {
+                    if (i == MessageAlerts.OK_OPTION) {
+                        System.out.println("Click ok");
+                    }
+                }
+            });
             JOptionPane.showMessageDialog(this, "Por favor, selecione uma empresa.", "Aviso", JOptionPane.WARNING_MESSAGE);
             return;  // Sai do método se a empresa não estiver selecionada
         }
@@ -387,14 +387,14 @@ public class SecondWindow extends javax.swing.JInternalFrame {
         // Verifica se foi selecionado um número de telefone
         int selectedTelefoneIndex = jComboBox_SelecioneNumeroTelefone.getSelectedIndex();
         if (selectedTelefoneIndex == 0) {
-//            MessageAlerts.getInstance().showMessage("Error in program flow", "Aviso! Selecione um número de telefone.", MessageAlerts.MessageType.ERROR, MessageAlerts.OK_OPTION, new PopupCallbackAction() {
-//                @Override
-//                public void action(PopupController pc, int i) {
-//                    if (i == MessageAlerts.OK_OPTION) {
-//                        System.out.println("Click ok");
-//                    }
-//                }
-//            });
+            MessageAlerts.getInstance().showMessage("Error in program flow", "Aviso! Selecione um número de telefone.", MessageAlerts.MessageType.ERROR, MessageAlerts.OK_OPTION, new PopupCallbackAction() {
+                @Override
+                public void action(PopupController pc, int i) {
+                    if (i == MessageAlerts.OK_OPTION) {
+                        System.out.println("Click ok");
+                    }
+                }
+            });
             JOptionPane.showMessageDialog(this, "Por favor, selecione um número de telefone.", "Aviso", JOptionPane.WARNING_MESSAGE);
             return;  // Sai do método se o número de telefone não estiver selecionado
         }
@@ -402,14 +402,14 @@ public class SecondWindow extends javax.swing.JInternalFrame {
         // Verifica se foi selecionado um boleto na tabela
         int selectedRow = jTable_Tabela.getSelectedRow();
         if (selectedRow == -1) {
-//            MessageAlerts.getInstance().showMessage("Error in program flow", "Aviso! Selecione um boleto na tabela.", MessageAlerts.MessageType.ERROR, MessageAlerts.OK_OPTION, new PopupCallbackAction() {
-//                @Override
-//                public void action(PopupController pc, int i) {
-//                    if (i == MessageAlerts.OK_OPTION) {
-//                        System.out.println("Click ok");
-//                    }
-//                }
-//            });
+            MessageAlerts.getInstance().showMessage("Error in program flow", "Aviso! Selecione um boleto na tabela.", MessageAlerts.MessageType.ERROR, MessageAlerts.OK_OPTION, new PopupCallbackAction() {
+                @Override
+                public void action(PopupController pc, int i) {
+                    if (i == MessageAlerts.OK_OPTION) {
+                        System.out.println("Click ok");
+                    }
+                }
+            });
             JOptionPane.showMessageDialog(this, "Por favor, Selecione um boleto na tabela.", "Aviso", JOptionPane.WARNING_MESSAGE);
             return;  // Sai do método se nenhum boleto estiver selecionado
         }
@@ -500,7 +500,7 @@ public class SecondWindow extends javax.swing.JInternalFrame {
                 String dataVencimento = jTable_Tabela.getValueAt(selectedRow, 6).toString();
                 String valorPagamento = jTable_Tabela.getValueAt(selectedRow, 7).toString();
                 String formaPagamento = Util.objectToString(jTable_Tabela.getValueAt(selectedRow, 8));
-                formaPagamento = Util.objectToString(jTable_Tabela.getValueAt(selectedRow, 8));
+                //formaPagamento = Util.objectToString(jTable_Tabela.getValueAt(selectedRow, 8));
                 String situacao = jTable_Tabela.getValueAt(selectedRow, 9).toString();
 
                 // Formatar a mensagem a ser enviada
@@ -510,7 +510,7 @@ public class SecondWindow extends javax.swing.JInternalFrame {
                         + "Produto: " + produto + "\n"
                         + "categoria: " + categoria + "\n"
                         + "Preço do Produto: " + preco + "\n"
-                        //+ "Código de Barras: " + codigoBarras + "\n"
+                        + "Código de Barras: " + codigoBarras + "\n"
                         + "Data da venda: " + dataVencimento + "\n"
                         + "Forma Pagamento: " + formaPagamento + "\n"
                         + "Valor a pagar: " + valorPagamento + "\n"
